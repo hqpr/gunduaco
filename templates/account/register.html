@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+{% if not user.is_authenticated %}
+
+    <div class="container" style="margin-top:30px">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
+            <div class="panel-body">
+                    <form method="post" action="{% url 'account.views.register' %}">
+                        {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username or Email</label>
+                        <input type="text" class="form-control" name="username" id="" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password1" class="form-control" id="" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password2" class="form-control" id="" placeholder="Password2">
+                    </div>
+
+                        <button type="submit" class="btn btn-sm btn-default">Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+     <div style="width: 200px; height: 300px; float: left">
+     <p>Enter your Email</p>
+     <p>Password</p>
+     <p>Password Again</p>
+     </div>
+     <div style="width: 200px; height: 300px; float: left">
+     <p> {{ form.username }}</p>
+     <p> {{ form.password1 }}</p>
+     <p> {{ form.password2 }}</p>
+         <br/>
+         <input type="submit" value="Sign in">
+     </div>
+
+  </form>
+{% if errors %} {% for error in errors %}
+<span style="color: red; font-size: 16px"> {{ error }}</span>
+{% endfor %} {% endif %}
+    {% else %}
+    You are already registered
+    {% endif %}
+
+{% endblock %}
