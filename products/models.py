@@ -115,7 +115,7 @@ class Prices(models.Model):
     product = models.ForeignKey(Products)
     currency = models.CharField(max_length=255)
     price = models.FloatField()
-    promotion = models.CharField(max_length=255, blank=True, null=True)
+    promotion = models.BooleanField(default=STATUS_NOT_ACTIVE)
     promo_text = models.TextField()
     promo_price = models.FloatField(default=0, blank=True, null=True)
     valid_from = models.DateTimeField(default=datetime.now())

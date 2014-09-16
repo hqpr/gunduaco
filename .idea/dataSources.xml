@@ -7,7 +7,11 @@
       <jdbc-url>jdbc:mysql://127.0.0.1/gunduaco</jdbc-url>
       <user-name>gunduaco_ad</user-name>
       <user-password>df86dfffdf83df89dff1df88df9bdff5dff8dfc4df83dfd4dfe7df9bdffd</user-password>
-      <libraries />
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.PyCharm30/config/jdbc-drivers/mysql-connector-java-5.1.26-bin.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

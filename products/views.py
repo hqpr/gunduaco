@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Products, Prices
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 
 
 """
@@ -15,9 +16,11 @@ def index(request):
     context = {'products': products}
     return render(request, 'products/index.html', context)
 
+
 @login_required
 def price(request):
-    price = Prices.objects.get(id=5)
-    context = {'price': price}
+    products = Prices.objects.filter(promotion=True).values('product').annotate(Count('product'))[:50]
+    # c = products.count()
+    context = {'products': products}
     return render(request, 'products/charts.html', context)
 
