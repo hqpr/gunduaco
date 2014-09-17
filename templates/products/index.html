@@ -2,38 +2,5 @@
 {% block title %} Main page {% endblock %}
 
 {% block content %}
-    <table class="table table-striped">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Retailer</th>
-                <th>Product Category</th>
-                <th>Subcategory</th>
-                <th>Sub-Subcategory</th>
-                <th>Active</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for p in products %}
-            <tr>
-                <td>{{ p.id }}</td>
-                <td>{{ p.name }}</td>
-                <td>{{ p.description }}</td>
-                <td>{{ p.retailer }}</td>
-                <td>{{ p.category }}</td>
-                <td>{{ p.subcategory }}</td>
-                <td>{{ p.subsubcategory }}</td>
-                <td>{{ p.active }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-
-    </table>
 
 {% endblock %}

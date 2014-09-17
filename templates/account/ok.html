@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if not user.is_authenticated %}
+        <div class="alert alert-success">Congratulations, you have successfully registered! You can <a href="/account/login/">log in</a> now</div>
+    {% endif %}
+{% endblock %}

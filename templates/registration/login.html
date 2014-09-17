@@ -4,7 +4,7 @@
     <div class="container" style="margin-top:30px">
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
+                <div class="panel-heading"><h3 class="panel-title"><strong>Log In </strong></h3></div>
                 <div class="panel-body">
 
                     <form action="{% url 'django.contrib.auth.views.login' %}" method="post">
@@ -12,7 +12,7 @@
                         <div id="block">
                             <div class="form-group">
                                 <label id="user" for="name">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="E-mail" required/>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" required/>
                                 <label id="pass" for="password">Password</label>
                                 <input type="password" name="password" id="password" placeholder="Password" class="form-control" required />
                             </div>

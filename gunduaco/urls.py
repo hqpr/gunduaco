@@ -11,11 +11,16 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
+
     url(r'^account/', include('account.urls')),
     url(r'^admin/', include(admin.site.urls)),
     (r'^account/', include('django.contrib.auth.urls')),
     (r'^accounts/', include('django.contrib.auth.urls')),
-    (r'^charts/', views.price),
+    (r'^charts/$', views.charts),
+    (r'^charts/(\d+)/$', views.charts_brand),
+    (r'^product/(\d+)/$', views.product),
+    (r'^category/(\d+)/$', views.category),
+    (r'^categories/$', views.categories),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

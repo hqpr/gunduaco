@@ -1,73 +1,275 @@
 {% extends 'base.html' %}
 {% block title %} Charts samples one {% endblock %}
 {% block content %}
+    <h3>All products</h3>
 
-    <div id="chart1" style="margin-top:20px; margin-left:20px; width:1024px; height:300px; margin-bottom: 250px"></div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script>
+$(function () {
+    var data = [
+    {% if forloop.last %}
+        {{ p.name__count }}
+    {% else %}
+        {{ p.name__count }},
+    {% endif %}
+    ],
+        detailChart;
 
-    <script class="code" type="text/javascript">
-        $(document).ready(function(){
+    $(document).ready(function () {
 
+        // create the detail chart
+        function createDetail(masterChart) {
 
-                var line1 = [{% for p in products %}
-                    {% if forloop.last %}
-                        ['{{ p.name }}', {{ p.name__count }}]
-                    {% else %}
-                        ['{{ p.name }}', {{ p.name__count }}],
-                    {% endif %}
-                {% endfor %}];
+            // prepare the detail chart
+            var detailData = [],
+                detailStart = Date.UTC(2008, 7, 1);
 
-            var plot1 = $.jqplot('chart1', [line1], {
-                title: 'Promotions vs. Product Name',
-                series:[{renderer:$.jqplot.BarRenderer}],
-                axesDefaults: {
-                    tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
-                    tickOptions: {
-{#                        angle: -30,#}
-                        fontSize: '10pt'
-                    }
-                },
-                axes: {
-                    xaxis: {
-                        renderer: $.jqplot.CategoryAxisRenderer
-                    }
+            $.each(masterChart.series[0].data, function () {
+                if (this.x >= detailStart) {
+                    detailData.push(this.y);
                 }
             });
-        });
+
+            // create a detail chart referenced by a global variable
+            detailChart = $('#detail-container').highcharts({
+                chart: {
+                    marginBottom: 120,
+                    reflow: false,
+                    marginLeft: 50,
+                    marginRight: 20,
+                    style: {
+                        position: 'absolute'
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: 'Historical USD to EUR Exchange Rate'
+                },
+                subtitle: {
+                    text: 'Select an area by dragging across the lower chart'
+                },
+                xAxis: {
+                    type: 'datetime'
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    maxZoom: 0.1
+                },
+                tooltip: {
+                    formatter: function () {
+                        var point = this.points[0];
+                        return '<b>' + point.series.name + '</b><br/>' +
+                            Highcharts.dateFormat('%A %B %e %Y', this.x) + ':<br/>' +
+                            '1 USD = ' + Highcharts.numberFormat(point.y, 2) + ' EUR';
+                    },
+                    shared: true
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    series: {
+                        marker: {
+                            enabled: false,
+                            states: {
+                                hover: {
+                                    enabled: true,
+                                    radius: 3
+                                }
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'USD to EUR',
+                    pointStart: detailStart,
+                    pointInterval: 24 * 3600 * 1000,
+                    data: detailData
+                }],
+
+                exporting: {
+                    enabled: false
+                }
+
+            }).highcharts(); // return chart
+        }
+
+        // create the master chart
+        function createMaster() {
+            $('#master-container').highcharts({
+                chart: {
+                    reflow: false,
+                    borderWidth: 0,
+                    backgroundColor: null,
+                    marginLeft: 50,
+                    marginRight: 20,
+                    zoomType: 'x',
+                    events: {
+
+                        // listen to the selection event on the master chart to update the
+                        // extremes of the detail chart
+                        selection: function (event) {
+                            var extremesObject = event.xAxis[0],
+                                min = extremesObject.min,
+                                max = extremesObject.max,
+                                detailData = [],
+                                xAxis = this.xAxis[0];
+
+                            // reverse engineer the last part of the data
+                            $.each(this.series[0].data, function () {
+                                if (this.x > min && this.x < max) {
+                                    detailData.push({
+                                        x: this.x,
+                                        y: this.y
+                                    });
+                                }
+                            });
+
+                            // move the plot bands to reflect the new detail span
+                            xAxis.removePlotBand('mask-before');
+                            xAxis.addPlotBand({
+                                id: 'mask-before',
+                                from: Date.UTC(2006, 0, 1),
+                                to: min,
+                                color: 'rgba(0, 0, 0, 0.2)'
+                            });
+
+                            xAxis.removePlotBand('mask-after');
+                            xAxis.addPlotBand({
+                                id: 'mask-after',
+                                from: max,
+                                to: Date.UTC(2008, 11, 31),
+                                color: 'rgba(0, 0, 0, 0.2)'
+                            });
+
+
+                            detailChart.series[0].setData(detailData);
+
+                            return false;
+                        }
+                    }
+                },
+                title: {
+                    text: null
+                },
+                xAxis: {
+                    type: 'datetime',
+                    showLastTickLabel: true,
+                    maxZoom: 14 * 24 * 3600000, // fourteen days
+                    plotBands: [{
+                        id: 'mask-before',
+                        from: Date.UTC(2006, 0, 1),
+                        to: Date.UTC(2008, 7, 1),
+                        color: 'rgba(0, 0, 0, 0.2)'
+                    }],
+                    title: {
+                        text: null
+                    }
+                },
+                yAxis: {
+                    gridLineWidth: 0,
+                    labels: {
+                        enabled: false
+                    },
+                    title: {
+                        text: null
+                    },
+                    min: 0.6,
+                    showFirstLabel: false
+                },
+                tooltip: {
+                    formatter: function () {
+                        return false;
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    series: {
+                        fillColor: {
+                            linearGradient: [0, 0, 0, 70],
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, 'rgba(255,255,255,0)']
+                            ]
+                        },
+                        lineWidth: 1,
+                        marker: {
+                            enabled: false
+                        },
+                        shadow: false,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+
+                series: [{
+                    type: 'area',
+                    name: 'USD to EUR',
+                    pointInterval: 24 * 3600 * 1000,
+                    pointStart: Date.UTC(2006, 0, 1),
+                    data: data
+                }],
+
+                exporting: {
+                    enabled: false
+                }
+
+            }, function (masterChart) {
+                createDetail(masterChart);
+            })
+                .highcharts(); // return chart instance
+        }
+
+        // make the container smaller and add a second container for the master chart
+        var $container = $('#container')
+            .css('position', 'relative');
+
+        $('<div id="detail-container">')
+            .appendTo($container);
+
+        $('<div id="master-container">')
+            .css({ position: 'absolute', top: 300, height: 100, width: '100%' })
+            .appendTo($container);
+
+        // create master and in its callback, create the detail chart
+        createMaster();
+    });
+
+});
     </script>
 
+    <h3>Select by brand</h3>
+<table class="table table-hover">
+        {% for b in brands %}
+            <tr>
+                <td><a href="/charts/{{ b.id }}/">{{ b.name }}</a></td>
+            </tr>
+        {% endfor %}
+</table>
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.dateAxisRenderer.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.canvasTextRenderer.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jqplot/jquery.jqplot.min.css" />
-
-    <script class="include" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/examples/syntaxhighlighter/scripts/shCore.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/examples/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/examples/syntaxhighlighter/scripts/shBrushXml.min.js"></script>
-
-    <script class="include" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.barRenderer.min.js"></script>
-    <script class="include" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.pieRenderer.min.js"></script>
-    <script class="include" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-    <script class="include" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/plugins/jqplot.pointLabels.min.js"></script>
-
-
+var data = [
+    {% if forloop.last %}
+        {{ p.name__count }}
+    {% else %}
+        {{ p.name__count }},
+    {% endif %}
+    ]
 
 
-{#    <h1>Total products: <b>{{ c }}</b></h1>#}
 
-    {{ products }}
-
-    <br/>
-{% for p in products %}
-    {{ p.product }} - {{ p.product__count}}<br/>
-{% endfor %}
-
-
-    {{ c }}
-
-{##}
 {#    var line1 = [{% for p in products %}#}
 {#        {% if forloop.last %}#}
 {#            ['{{ p.name }}', {{ p.name__count }}]#}

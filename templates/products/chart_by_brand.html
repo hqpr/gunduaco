@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}'{{ title.name }}' Chart{% endblock %}
+
+{% block content %}
+    <ol class="breadcrumb">
+      <li><a href="{% url 'products.views.index' %}">Home</a></li>
+      <li><a href="{% url 'products.views.charts' %}">All charts</a></li>
+      <li class="active">{{ title }}</li>
+    </ol>
+
+
+
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Brand <i>{{ title }}</i> vs Promotions'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                {% for p in charts %}
+                    {% if forloop.last %}
+                        {{ p.product }}
+                    {% else %}
+                        {{ p.product }},
+                    {% endif %}
+                {% endfor %}
+            ],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' number'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '',
+            data: [
+                {% for p in charts %}
+                    {% if forloop.last %}
+                        {{ p.product__count }}
+                    {% else %}
+                        {{ p.product__count }},
+                    {% endif %}
+                {% endfor %}]
+        }]
+    });
+});
+    </script>
+
+
+    {% if chart_values %}
+        <div class="alert alert-success">Total prodcuts with promotions on brand <b>{{ title }}</b>: {{ chart_values }}</div>
+    {% else %}
+        <div class="alert alert-danger">There is no Promotions for these products</div>
+    {% endif %}
+    <p></p>
+
+
+
+        {% for p in products %}
+            {{ p.id }} <a href="/product/{{ p.id }}/">{{ p.name }}</a><br/>
+        {% endfor %}
+{% endblock %}

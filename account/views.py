@@ -23,7 +23,7 @@ def login_view(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-    return render_to_response('account/../templates/registration/login.html', context_instance=RequestContext(request))
+    return render_to_response('registration/login.html', context_instance=RequestContext(request))
 
 
 def logout_view(request):
@@ -37,11 +37,14 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            return redirect('index')
+            return redirect('success')
         else:
-            errors.append('Something not right')
+            errors.append('Something not right. Try again')
     else:
         form = UserCreationForm()
     return render(request, "account/register.html", {
         'form': form, 'errors': errors
     })
+
+def success(request):
+    return render(request, 'account/ok.html')

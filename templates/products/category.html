@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %} Category: {{ title }}{% endblock %}
+{% block content %}
+    <ol class="breadcrumb">
+      <li><a href="{% url 'products.views.index' %}">Home</a></li>
+      <li class="active">{{ title }}</li>
+    </ol>
+    <h1>Products in {{ title }}</h1>
+    <p></p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Brand</th>
+            <th>Retailer</th>
+            <th>Product Category</th>
+            <th>Subcategory</th>
+            <th>Sub-Subcategory</th>
+            <th>Active</th>
+            <th>Deactivation Date</th>
+            <th>Quantity</th>
+            <th>Unit of measure</th>
+            <th>URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.retailer }}</td>
+            <td><a href="/category/{{ product.category.id }}/"></a>{{ product.category }}</td>
+            <td>{{ product.subcategory }}</td>
+            <td>{{ product.subsubcategory }}</td>
+            <td>{{ product.active }}</td>
+            <td>{{ product.deactivation }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.unit_of_measure }}</td>
+            <td><a href="{{ product.url }}" class="glyphicon glyphicon-share-alt"></a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

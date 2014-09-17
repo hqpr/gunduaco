@@ -6,17 +6,8 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/bootstrap.css"/>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/bootstrap.min.js"></script>
-
-    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
-    <script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/jquery.min.js"></script>
-    <script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/jqplot/jquery.jqplot.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jqplot/jquery.jqplot.css" />
-{#    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}js/jqplot/examples/examples.min.css" />#}
-    <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}js/jqplot/examples/syntaxhighlighter/styles/shCoreDefault.min.css" />
-    <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}js/jqplot/examples/syntaxhighlighter/styles/shThemejqPlot.min.css" />
-
-
-
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 
     <title>{% block title %}{% endblock %}</title>
@@ -48,17 +39,18 @@
                         <ul class="nav navbar-nav">
 {#                            <li class="active"><a href="#">Main</a></li>#}
                             <li><a href="/">Main</a></li>
-                            <li><a href="{% url 'products.views.price' %}">Charts</a></li>
+                            <li><a href="/categories/">Categories</a></li>
+                            <li><a href="{% url 'products.views.charts' %}">Charts</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">link <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Link</a></li>
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something else here</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Separated link</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">One more separated link</a></li>
+                                    <li><a href="#">Link</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -71,7 +63,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">Link</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, {{ user.username }} <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, <b>{{ user.username }}</b> <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
 
                                     <li><a href="#">Another action</a></li>
