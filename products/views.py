@@ -81,6 +81,7 @@ def product(request, id):
 def category(request, id):
     products = Products.objects.filter(category=id)
     title = Category.objects.get(id=id)
+    charts = Prices.objects.filter(product=products).filter(promotion=True).values('promotion', 'valid_from').annotate(Count('valid_from')).annotate(Count('promotion'))
     paginator = Paginator(products, 10)
     page = request.GET.get('page')
     try:
@@ -89,7 +90,7 @@ def category(request, id):
         products = paginator.page(1)
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
-    context = {'products': products, 'title': title}
+    context = {'products': products, 'title': title, 'charts': charts}
     return render(request, 'products/category.html', context)
 
 
