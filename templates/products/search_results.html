@@ -8,15 +8,37 @@
         {% endfor %}
     {% endif %}
 
-    <p>Search query <strong>{{ query }}</strong></p>
+    <p>Search query
+        <strong>
+            {% if not query %}
+                Dates: {{ s }} - {{ e }}
+            {% else %}
+                {{ query }}
+            {% endif %}
+        </strong></p>
 
     {% if product %}
         <div class="alert alert-success"><p>Found <b>{{ product|length }}</b>:</div>
         {% for p in product %}
             <a href="/product/{{ p.id }}">{{ p.name }}</a> <br/>
         {% endfor %}
-
-
+    {% elif result %}
+        {% for res in result %}
+            <a href="/product/{{ res.product_id }}/">{{ res.product }}</a>: {{ res.price }} {{ res.currency }} (promotion={{ res.promotion }})<br/>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-danger">Nothing found</div>
     {% endif %}
-
+    <hr/>
+{#    {% if result.has_previous %}#}
+{#        <a href="%?page={{ result.previous_page_number }}"> &larr; </a>#}
+{#    {% endif %}#}
+{#    <ul class="pagination">#}
+{#            <li><a href="">{{ result.number }}</a></li>#}
+{#    {% if result.has_next %}#}
+{#            <li><a href="&amp;?page={{ result.next_page_number }}">{{ result.next_page_number }}</a></li>#}
+{#            <li><a href="&amp;?page={{ result.paginator.num_pages }}">{{ result.paginator.num_pages }}</a></li>#}
+{#            <li><a href="&amp;?page={{ result.next_page_number }}" title="Next page">&rarr; </a></li>#}
+{#        </ul>#}
+{#    {% endif %}#}
 {% endblock %}

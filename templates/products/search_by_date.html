@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %} Search by dates {% endblock %}
+{% block content %}
+    <h2>Searching by dates</h2>
+    <div class="date-form">
+        <div class="col-md-4">
+            <form action="/search_by_date/" role="search" >
+            <div class="control-group">
+                <label for="date-picker-2" class="control-label">Start Date</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <input id="date-picker-2" type="text" class="date-picker form-control" name="s"/>
+                        <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="date-picker-3" class="control-label">End Date</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                        </label>
+                        <input id="date-picker-3" type="text" class="date-picker form-control" name="e"/>
+                    </div>
+                </div>
+            </div>
+                <br/>
+            <div class="pull-right"><button type="submit" class="btn btn-default">Search</button></div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".date-picker").datepicker();
+        $(".date-picker").on("change", function () {
+            var id = $(this).attr("id");
+            var val = $("label[for='" + id + "']").text();
+            $("#msg").text(val + " changed");
+        });
+
+    </script>
+    {% if errors %}
+        <div class="alert alert-danger">{{ errors }}</div>
+    {% endif %}
+
+{% endblock %}

@@ -2,10 +2,788 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76c519d2-c71a-4372-9da6-c54942c91fc0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/products/search_results.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/products/templatetags/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/media/js/bootstrap-datepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/products/templatetags/product_tag.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/products/search_by_date.html" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\README.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\changes.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\copyright.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\MIT-LICENSE-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\changes-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\gpl-2-0-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\basicline.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\basiclogaxis.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\basiclogoptions.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\basicoptions.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\dualaxis.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navdocs.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navdocsover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navdownload.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navdownloadover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navexamples.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navexamplesover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navhome.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\navhomeover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\new.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\sample3.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\images\samplesm.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqPlotCssStyling-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqPlotOptions-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-axisLabelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-axisTickRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-canvasGridRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-core-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-divTitleRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-lineRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-linearAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-markerRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-shadowRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-shapeRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-themeEngine-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\jqplot-toImage-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\optionsTutorial-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-BezierCurveRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-barRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-blockRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-bubbleRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-canvasAxisLabelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-canvasAxisTickRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-canvasOverlay-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-categoryAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-ciParser-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-cursor-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-dateAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-donutRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-dragable-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-enhancedLegendRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-funnelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-highlighter-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-logAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-mekkoAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-mekkoRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-meterGaugeRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-ohlcRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-pieRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-pointLabels-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-pyramidAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-pyramidGridRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-pyramidRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\plugins\jqplot-trendline-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\files\usage-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Classes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Files.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Functions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General3.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General5.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General6.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\General7.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Hooks.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties3.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties5.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\index\Properties6.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\javascript\main.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\javascript\searchdata.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesSymbols.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\ClassesV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FilesJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsQ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\FunctionsZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralB.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralF.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralO.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralQ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralSymbols.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralU.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralW.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralX.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralY.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\GeneralZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\HooksA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\HooksE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\HooksJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\HooksP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\NoResults.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesB.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesF.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesO.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesU.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesW.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesX.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesY.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\search\PropertiesZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\styles\1.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\styles\2.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\docs\styles\main.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\KCPsample4.csv" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\ages.json" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\ajax-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\area.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\axisLabelTests.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\axisLabelsRotatedText.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\axisScalingForceTickAt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\bandedLine.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\bar-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\barLineAnimated.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\barTest.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\bezierCurve.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\blockPlot.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\bubble-plots.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\bubbleChart.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\candlestick-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\candlestick.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\canvas-overlay.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\bar-alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\bar-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\bar-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\bar.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\map-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\map-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\map.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\preview-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\images\ui-colorpicker.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\jquery.colorpicker.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\colorpicker\jquery.colorpicker.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\cursor-highlighter.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\customHighlighterCursorTrendline.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\dashboardWidget.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\dashedLines.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\data-renderers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\date-axes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\dateAxisLogAxisZooming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\dateAxisRenderer.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\draw-rectangles.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\example.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\example.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\examples.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\examples.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\fillBetweenLines.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\hiddenPlotsInTabs.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\bar-alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\bar-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\bar-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\bar.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\map-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\map-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\map.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\preview-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\images\ui-colorpicker.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\smoothness\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\jquery-ui-1.9pre.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\jquery-ui-1.9pre.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\css\ui-lightness\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\js\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\js\jquery.effects.blind.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jquery-ui\js\jquery.effects.core.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\jsondata.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp.print.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_area.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_area2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_cdf.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_engel.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_lorenz.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_pdf.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_pyramid.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_pyramid2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_pyramid_by_age.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_pyramid_by_age.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\kcp_quintiles.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\line-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\mekkoCharts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\meterGauge.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\multipleBarColors.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\nav.inc" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\pie-donut-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\pieTest.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\pieTest2.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\pieTest4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\point-labels.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\quintiles.json" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\resizablePlot.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\rotated-tick-labels.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\rotatedTickLabelsZoom.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\selectorSyntax.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\smoothedLine.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\LGPL-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\MIT-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shAutoloader.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shAutoloader.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shBrushJScript.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shBrushJScript.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shBrushXml.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shBrushXml.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\scripts\shCore.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shCore.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shCore.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shCoreDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shCoreDefault.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shThemeDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shThemeDefault.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shThemejqPlot.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\syntaxhighlighter\styles\shThemejqPlot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\theming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\topbanner.inc" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\waterfall.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\waterfall2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\yahooData.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\yahooData.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\zoom1.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\zoomOptions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\zoomProxy.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\examples\zooming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\excanvas.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\excanvas.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\gpl-2.0.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jqPlotCssStyling.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jqPlotOptions.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.jqplot.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.jqplot.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.jqplot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.jqplot.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\optionsTutorial.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.BezierCurveRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.BezierCurveRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.barRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.barRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.blockRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.blockRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.bubbleRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.bubbleRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasAxisLabelRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasAxisLabelRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasAxisTickRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasAxisTickRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasOverlay.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasOverlay.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasTextRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.canvasTextRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.categoryAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.categoryAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.ciParser.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.ciParser.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.cursor.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.cursor.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.dateAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.dateAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.donutRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.donutRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.dragable.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.dragable.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.enhancedLegendRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.enhancedLegendRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.funnelRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.funnelRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.highlighter.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.highlighter.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.json2.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.json2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.logAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.logAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mekkoAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mekkoAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mekkoRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mekkoRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.meterGaugeRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.meterGaugeRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mobile.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.mobile.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.ohlcRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.ohlcRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pieRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pieRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pointLabels.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pointLabels.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidGridRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidGridRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.pyramidRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.trendline.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\plugins\jqplot.trendline.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\public\media\js\jqplot\usage.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\MIT-LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\README.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\changes.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\copyright.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\MIT-LICENSE-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\changes-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\gpl-2-0-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\background.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\basicline.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\basiclogaxis.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\basiclogoptions.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\basicoptions.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\dualaxis.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navdocs.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navdocsover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navdownload.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navdownloadover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navexamples.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navexamplesover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navhome.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\navhomeover.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\new.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\sample3.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\images\samplesm.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqPlotCssStyling-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqPlotOptions-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-axisLabelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-axisTickRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-canvasGridRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-core-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-divTitleRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-lineRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-linearAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-markerRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-shadowRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-shapeRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-themeEngine-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\jqplot-toImage-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\optionsTutorial-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-BezierCurveRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-barRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-blockRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-bubbleRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-canvasAxisLabelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-canvasAxisTickRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-canvasOverlay-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-categoryAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-ciParser-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-cursor-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-dateAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-donutRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-dragable-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-enhancedLegendRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-funnelRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-highlighter-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-logAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-mekkoAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-mekkoRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-meterGaugeRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-ohlcRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-pieRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-pointLabels-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-pyramidAxisRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-pyramidGridRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-pyramidRenderer-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\plugins\jqplot-trendline-js.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\files\usage-txt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Classes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Files.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Functions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General3.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General5.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General6.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\General7.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Hooks.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties3.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties5.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\index\Properties6.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\javascript\main.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\javascript\searchdata.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesSymbols.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\ClassesV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FilesJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsQ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\FunctionsZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralB.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralF.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralO.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralQ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralSymbols.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralU.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralW.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralX.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralY.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\GeneralZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\HooksA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\HooksE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\HooksJ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\HooksP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\NoResults.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesA.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesB.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesC.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesD.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesE.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesF.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesG.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesH.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesI.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesL.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesM.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesN.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesO.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesP.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesR.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesS.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesT.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesU.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesV.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesW.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesX.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesY.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\search\PropertiesZ.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\styles\1.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\styles\2.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\docs\styles\main.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\KCPsample4.csv" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\ages.json" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\ajax-loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\area.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\axisLabelTests.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\axisLabelsRotatedText.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\axisScalingForceTickAt.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\bandedLine.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\bar-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\barLineAnimated.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\barTest.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\bezierCurve.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\blockPlot.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\bubble-plots.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\bubbleChart.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\candlestick-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\candlestick.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\canvas-overlay.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\bar-alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\bar-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\bar-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\bar.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\map-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\map-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\map.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\preview-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\images\ui-colorpicker.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\jquery.colorpicker.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\colorpicker\jquery.colorpicker.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\cursor-highlighter.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\customHighlighterCursorTrendline.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\dashboardWidget.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\dashedLines.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\data-renderers.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\date-axes.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\dateAxisLogAxisZooming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\dateAxisRenderer.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\draw-rectangles.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\example.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\example.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\examples.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\examples.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\fillBetweenLines.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\hiddenPlotsInTabs.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\bar-alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\bar-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\bar-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\bar.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\map-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\map-pointer.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\map.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\preview-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\images\ui-colorpicker.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\smoothness\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\images\ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\jquery-ui-1.9pre.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\jquery-ui-1.9pre.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\jquery-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\css\ui-lightness\jquery-ui.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\js\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\js\jquery.effects.blind.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jquery-ui\js\jquery.effects.core.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\jsondata.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp.print.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_area.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_area2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_cdf.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_engel.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_lorenz.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_pdf.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_pyramid.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_pyramid2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_pyramid_by_age.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_pyramid_by_age.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\kcp_quintiles.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\line-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\mekkoCharts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\meterGauge.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\multipleBarColors.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\nav.inc" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\pie-donut-charts.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\pieTest.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\pieTest2.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\pieTest4.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\point-labels.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\quintiles.json" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\resizablePlot.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\rotated-tick-labels.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\rotatedTickLabelsZoom.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\selectorSyntax.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\smoothedLine.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\LGPL-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\MIT-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shAutoloader.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shAutoloader.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shBrushJScript.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shBrushJScript.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shBrushXml.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shBrushXml.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\scripts\shCore.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shCore.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shCore.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shCoreDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shCoreDefault.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shThemeDefault.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shThemeDefault.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shThemejqPlot.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\syntaxhighlighter\styles\shThemejqPlot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\theming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\topbanner.inc" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\waterfall.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\waterfall2.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\yahooData.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\yahooData.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\zoom1.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\zoomOptions.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\zoomProxy.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\examples\zooming.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\excanvas.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\excanvas.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\gpl-2.0.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jqPlotCssStyling.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jqPlotOptions.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.jqplot.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.jqplot.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.jqplot.min.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.jqplot.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\optionsTutorial.txt" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.BezierCurveRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.BezierCurveRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.barRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.barRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.blockRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.blockRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.bubbleRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.bubbleRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasAxisLabelRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasAxisLabelRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasAxisTickRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasAxisTickRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasOverlay.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasOverlay.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasTextRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.canvasTextRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.categoryAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.categoryAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.ciParser.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.ciParser.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.cursor.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.cursor.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.dateAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.dateAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.donutRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.donutRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.dragable.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.dragable.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.enhancedLegendRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.enhancedLegendRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.funnelRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.funnelRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.highlighter.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.highlighter.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.json2.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.json2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.logAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.logAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mekkoAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mekkoAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mekkoRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mekkoRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.meterGaugeRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.meterGaugeRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mobile.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.mobile.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.ohlcRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.ohlcRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pieRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pieRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pointLabels.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pointLabels.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidAxisRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidAxisRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidGridRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidGridRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidRenderer.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.pyramidRenderer.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.trendline.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\plugins\jqplot.trendline.min.js" afterPath="" />
+      <change type="DELETED" beforePath="D:\gunduaco\tmp\dist\usage.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/categories.html" afterPath="$PROJECT_DIR$/templates/products/categories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/category.html" afterPath="$PROJECT_DIR$/templates/products/category.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/chart_by_brand.html" afterPath="$PROJECT_DIR$/templates/products/chart_by_brand.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/index.html" afterPath="$PROJECT_DIR$/templates/products/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/products/search_results.html" afterPath="$PROJECT_DIR$/templates/products/search_results.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gunduaco/urls.py" afterPath="$PROJECT_DIR$/gunduaco/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products/views.py" afterPath="$PROJECT_DIR$/products/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -31,11 +809,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1107266" vertical-offset="0" max-vertical-offset="2000">
-              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            <state vertical-scroll-proportion="-53.724136" vertical-offset="462" max-vertical-offset="2240">
+              <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/media/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="124180">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -44,8 +834,8 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gunduaco/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="520">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+              <caret line="26" column="25" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -54,68 +844,30 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/products/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1693" max-vertical-offset="2400">
-              <caret line="108" column="26" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="3240">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="e#25#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_by_date.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/products/search_by_date.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1040">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search_results.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="search_results.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/products/search_results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.4827585" vertical-offset="0" max-vertical-offset="540">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/account/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="820" max-vertical-offset="1100">
-              <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="880">
-              <caret line="14" column="123" selection-start-line="14" selection-start-column="123" selection-end-line="14" selection-end-column="123" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categories.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/products/categories.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="460">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="category.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/products/category.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1320">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/account/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="940">
-              <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.65397924" vertical-offset="142" max-vertical-offset="980">
+              <caret line="26" column="107" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -124,8 +876,18 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/products/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="220">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="260">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/products/category.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.206897" vertical-offset="742" max-vertical-offset="1320">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="58" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -154,7 +916,6 @@
         <option value="$PROJECT_DIR$/public/media/js/jqplot/jquery.jqplot.css" />
         <option value="$PROJECT_DIR$/templates/products/charts1.html" />
         <option value="$PROJECT_DIR$/templates/products/charts.html" />
-        <option value="$PROJECT_DIR$/templates/products/chart_by_brand.html" />
         <option value="$PROJECT_DIR$/templates/products/product.html" />
         <option value="$PROJECT_DIR$/account/urls.py" />
         <option value="$PROJECT_DIR$/templates/account/ok.html" />
@@ -163,11 +924,19 @@
         <option value="$PROJECT_DIR$/account/views.py" />
         <option value="$PROJECT_DIR$/templates/products/categories.html" />
         <option value="$PROJECT_DIR$/templates/products/category.html" />
+        <option value="$PROJECT_DIR$/templates/products/chart_by_brand.html" />
+        <option value="$PROJECT_DIR$/templates/products/templatetags/__init__.py" />
+        <option value="$PROJECT_DIR$/templates/products/templatetags/product_tag.py" />
         <option value="$PROJECT_DIR$/templates/products/index.html" />
-        <option value="$PROJECT_DIR$/templates/products/search_results.html" />
-        <option value="$PROJECT_DIR$/products/views.py" />
         <option value="$PROJECT_DIR$/gunduaco/urls.py" />
+        <option value="$PROJECT_DIR$/public/media/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/public/media/css/datepicker.css" />
+        <option value="$PROJECT_DIR$/public/media/js/bootstrap-datepicker.js" />
+        <option value="$PROJECT_DIR$/public/media/css/bootstrap2.css" />
+        <option value="$PROJECT_DIR$/templates/products/search_by_date.html" />
+        <option value="$PROJECT_DIR$/products/views.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/templates/products/search_results.html" />
       </list>
     </option>
   </component>
@@ -249,24 +1018,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="registration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gunduaco" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gunduaco" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="products" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -281,11 +1032,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="account" />
+              <option name="myItemId" value="media" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -581,7 +1332,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1060" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="1060" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -625,55 +1376,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/products/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2280" max-vertical-offset="2900">
-          <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2160">
-          <caret line="12" column="83" selection-start-line="12" selection-start-column="83" selection-end-line="12" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/media/js/jqplot/jquery.jqplot.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="5420">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/media/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="300">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="640">
-          <caret line="21" column="68" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/products/charts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="1700">
-          <caret line="4" column="73" selection-start-line="4" selection-start-column="73" selection-end-line="4" selection-end-column="73" />
-          <folding>
-            <element signature="e#145#200#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="1240">
@@ -710,7 +1412,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="2080">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -718,7 +1422,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="580">
           <caret line="19" column="30" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="30" />
-          <folding />
+          <folding>
+            <element signature="e#25#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -776,7 +1482,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="1056">
           <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -784,7 +1492,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="462" max-vertical-offset="638">
           <caret line="21" column="43" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="e#25#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -841,7 +1551,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="550">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -856,7 +1568,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="132" max-vertical-offset="418">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="e#25#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -882,25 +1596,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/media/js/jqplot/jquery.jqplot.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1056338" vertical-offset="0" max-vertical-offset="568">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/media/js/jqplot/jquery.jqplot.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="5420">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/media/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -918,16 +1618,6 @@
           <caret line="272" column="19" selection-start-line="272" selection-start-column="19" selection-end-line="272" selection-end-column="42" />
           <folding>
             <element signature="e#145#200#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/products/chart_by_brand.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.551723" vertical-offset="0" max-vertical-offset="2140">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-          <folding>
-            <element signature="e#351#406#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -956,14 +1646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="880">
-          <caret line="14" column="123" selection-start-line="14" selection-start-column="123" selection-end-line="14" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/account/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="940">
@@ -988,50 +1670,131 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/chart_by_brand.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.034483" vertical-offset="4902" max-vertical-offset="5500">
+          <caret line="264" column="9" selection-start-line="264" selection-start-column="9" selection-end-line="264" selection-end-column="9" />
+          <folding>
+            <element signature="e#351#406#0#HTML" expanded="true" />
+            <element signature="e#2400#2420#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.344828" vertical-offset="0" max-vertical-offset="880">
+          <caret line="15" column="80" selection-start-line="15" selection-start-column="80" selection-end-line="15" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/templatetags/product_tag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19769357" vertical-offset="0" max-vertical-offset="607">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/templatetags/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="607">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/django/contrib/admin/static/admin/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="34602" max-vertical-offset="191820">
+          <caret line="1752" column="4" selection-start-line="1752" selection-start-column="4" selection-end-line="1752" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/products/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="80" max-vertical-offset="220">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.827586" vertical-offset="0" max-vertical-offset="260">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/products/category.html">
+    <entry file="file://$PROJECT_DIR$/public/media/js/bootstrap-datepicker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="662" max-vertical-offset="1320">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.6178451" vertical-offset="27333" max-vertical-offset="28020">
+          <caret line="1385" column="31" selection-start-line="1385" selection-start-column="31" selection-end-line="1385" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/products/search_results.html">
+    <entry file="file://$PROJECT_DIR$/public/media/css/datepicker.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.4827585" vertical-offset="0" max-vertical-offset="540">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1693" max-vertical-offset="2400">
-          <caret line="108" column="26" selection-start-line="108" selection-start-column="26" selection-end-line="108" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.47281712" vertical-offset="9053" max-vertical-offset="9740">
+          <caret line="467" column="14" selection-start-line="467" selection-start-column="14" selection-end-line="467" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gunduaco/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="520">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/media/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="124180">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/category.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.206897" vertical-offset="742" max-vertical-offset="1320">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="58" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/search_by_date.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1040">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1107266" vertical-offset="0" max-vertical-offset="2000">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+        <state vertical-scroll-proportion="-53.724136" vertical-offset="462" max-vertical-offset="2240">
+          <caret line="101" column="47" selection-start-line="101" selection-start-column="47" selection-end-line="101" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/products/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="3240">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/products/search_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65397924" vertical-offset="142" max-vertical-offset="980">
+          <caret line="26" column="107" selection-start-line="26" selection-start-column="107" selection-end-line="26" selection-end-column="107" />
           <folding />
         </state>
       </provider>

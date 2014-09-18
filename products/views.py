@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from .models import Products, Prices, Brand, Category
+from .models import Products, Prices, Brand, Category, Retailer
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -19,11 +19,6 @@ User interactions / Selection & Search Criteria
 the posibility to add filters after search results.--> The multiple
 criteria where not defined
 
-- Productname search with free text
-
-- 2 field with numeric value’s ( logical search criteria Between, higher
-etc) --> These are the dates
-
 - Search on a 4 Level Hierarchy ( after Level 1 has been choosen, only the
 matching level 2’s should be shown in --> Retailer, Category, sub category
 & subsubcategory
@@ -38,6 +33,12 @@ products, resulting in aggregation of the number of promotions in a period
 
 The following was not defined: ---> the setting to set the period for each
 column
+
+-----------------------------------DONE----------------------------------
+- Productname search with free text
+
+- 2 field with numeric value’s ( logical search criteria Between, higher
+etc) --> These are the dates
 
 """
 
@@ -62,7 +63,8 @@ def charts_brand(request, id):
     products = Products.objects.filter(brand=id)
     title = Brand.objects.get(id=id)
     c = products.count()
-    charts = Prices.objects.filter(product=products).filter(promotion=True).values('product', 'valid_from').annotate(Count('product'))
+    charts = Prices.objects.filter(product=products).filter(promotion=True)\
+        .values('product', 'valid_from', 'product__retailer').annotate(Count('product')).annotate(Count('product__retailer'))
     chart_values = charts.count()
     context = {'products': products, 'c': c, 'title': title, 'charts': charts, 'chart_values': chart_values}
     return render(request, 'products/chart_by_brand.html', context)
@@ -109,11 +111,47 @@ def search(request):
     if 'q' in request.GET:
         q = request.GET['q']
         if not q:
-            errors.append('Вы не ввели в строку запрос')
+            errors.append('You did not specify a query')
         else:
             product = Products.objects.filter(name__icontains=q)
-
             return render(request, 'products/search_results.html',
                 {'product': product, 'query': q})
     return render(request, 'products/index.html',
+        {'errors': errors})
+
+
+@login_required
+def datesearch(request):
+    return render(request, 'products/search_by_date.html')
+
+
+def search_by_date(request):
+    errors = []
+    if request.GET:
+        start = request.GET['s']
+        start = start.split('/')
+        start = '%s-%s-%s' % (start[2], start[0], start[1])
+        end = request.GET['e']
+        try:
+            end = end.split('/')
+            end = '%s-%s-%s' % (end[2], end[0], end[1])
+        except:
+            end = ''
+        if not start and end:
+            errors.append('No parameters')
+        else:
+            result = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end)
+            # paginator = Paginator(result, 10)
+            # page = request.GET.get('page')
+            # try:
+            #     result = paginator.page(page)
+            # except PageNotAnInteger:
+            #     result = paginator.page(1)
+            # except EmptyPage:
+            #     result = paginator.page(paginator.num_pages)
+            product = {'result': result, 's': start, 'e': end}
+            return render(request, 'products/search_results.html', product)
+    else:
+        errors.append('')
+        return render(request, 'products/index.html',
         {'errors': errors})

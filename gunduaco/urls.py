@@ -23,6 +23,8 @@ urlpatterns = patterns('',
     (r'^categories/$', views.categories),
     url(r'^search-form/$', views.search_form),
     url(r'^search/$', views.search),
+    url(r'^datesearch/$', views.datesearch),
+    url(r'^search_by_date/$', views.search_by_date),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

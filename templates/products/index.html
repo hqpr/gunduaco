@@ -2,5 +2,7 @@
 {% block title %} Main page {% endblock %}
 
 {% block content %}
-
+    {% if errors %}
+        <div class="alert alert-danger">{{ errors }}</div>
+    {% endif %}
 {% endblock %}
