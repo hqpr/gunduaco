@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     (r'^product/(\d+)/$', views.product),
     (r'^category/(\d+)/$', views.category),
     (r'^categories/$', views.categories),
+    url(r'^search-form/$', views.search_form),
+    url(r'^search/$', views.search),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

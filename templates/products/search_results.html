@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Search results {% endblock %}
+{% block content %}
+
+    {% if errors %}
+        {% for error in errors %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <p>Search query <strong>{{ query }}</strong></p>
+
+    {% if product %}
+        <div class="alert alert-success"><p>Found <b>{{ product|length }}</b>:</div>
+        {% for p in product %}
+            <a href="/product/{{ p.id }}">{{ p.name }}</a> <br/>
+        {% endfor %}
+
+
+    {% endif %}
+
+{% endblock %}
