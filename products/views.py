@@ -163,8 +163,18 @@ def custom(request):
         ids = request.POST.getlist('product_id')
         start = request.POST['valid_from']
         end = request.POST['valid_to']
-        category = request.POST['category_id']
-        brand = request.POST['brand_id']
+        try:
+            category = request.POST['category_id']
+        except:
+            category = None
+        try:
+            brand = request.POST['brand_id']
+        except:
+            brand = None
+        try:
+            subcategory = request.POST['subcategory_id']
+        except:
+            subcategory = None
         if category:
             products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
                                     .filter(product__category_id=category)\
@@ -173,15 +183,24 @@ def custom(request):
             context = {'products': products, 'ids': ids, 'start': start, 'end': end}
             return render(request, 'products/custom.html', context)
         elif brand:
-                products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-                .filter(product__brand_id=brand)\
-                .values('promotion', 'valid_from', 'valid_to') \
-                .annotate(Count('promotion')).annotate(Count('valid_from'))
-                context = {'products': products, 'ids': ids, 'start': start, 'end': end}
-                return render(request, 'products/custom.html', context)
+            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
+            .filter(product__brand_id=brand)\
+            .values('promotion', 'valid_from', 'valid_to') \
+            .annotate(Count('promotion')).annotate(Count('valid_from'))
+            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            return render(request, 'products/custom.html', context)
+
+        elif subcategory:
+            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
+            .filter(product__subcategory_id=brand)\
+            .values('promotion', 'valid_from', 'valid_to') \
+            .annotate(Count('promotion')).annotate(Count('valid_from'))
+            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            return render(request, 'products/custom.html', context)
+
         else:
             products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-                        .values('promotion', 'valid_from', 'valid_to') \
+                        .values('promotion', 'valid_from', 'valid_to', 'product__brand') \
                         .annotate(Count('promotion')).annotate(Count('valid_from'))
-            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            context = {'products': products, 'ids': ids, 'start': start, 'end': end, 'brand': brand}
             return render(request, 'products/custom.html', context)
