@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^search/$', views.search),
     url(r'^datesearch/$', views.datesearch),
     url(r'^search_by_date/$', views.search_by_date),
+    url(r'^custom/$', views.custom),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

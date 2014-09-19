@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Custom filter{% endblock %}
+
+{% block content %}
+    {{ products }}<br/>
+    {{ ids }}<br/>
+    {{ start }} : {{ end }}
+
+
+<div id="container" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
+    <script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Valid from dates and number of promotions'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Promotion'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '<b>{point.y:.1f} promotion</b>'
+        },
+        series: [{
+            name: 'Population',
+            data: [
+                {% for c in products %}
+                    {% if forloop.last %}
+                        ['{{ c.valid_from }}', {{ c.promotion__count }}]
+                    {% else %}
+                        ['{{ c.valid_from }}', {{ c.promotion__count }}],
+                    {% endif %}
+                {% endfor %}
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                x: 4,
+                y: 10,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif',
+                    textShadow: '0 0 3px black'
+                }
+            }
+        }]
+    });
+});
+    </script>
+
+{% endblock %}

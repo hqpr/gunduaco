@@ -141,7 +141,7 @@ def search_by_date(request):
         if not start and end:
             errors.append('No parameters')
         else:
-            result = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end)
+            result = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)
             # paginator = Paginator(result, 10)
             # page = request.GET.get('page')
             # try:
@@ -156,3 +156,32 @@ def search_by_date(request):
         errors.append('')
         return render(request, 'products/index.html',
         {'errors': errors})
+
+
+def custom(request):
+    if request.POST:
+        ids = request.POST.getlist('product_id')
+        start = request.POST['valid_from']
+        end = request.POST['valid_to']
+        category = request.POST['category_id']
+        brand = request.POST['brand_id']
+        if category:
+            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
+                                    .filter(product__category_id=category)\
+                                    .values('promotion', 'valid_from', 'valid_to') \
+                                    .annotate(Count('promotion')).annotate(Count('valid_from'))
+            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            return render(request, 'products/custom.html', context)
+        elif brand:
+                products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
+                .filter(product__brand_id=brand)\
+                .values('promotion', 'valid_from', 'valid_to') \
+                .annotate(Count('promotion')).annotate(Count('valid_from'))
+                context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+                return render(request, 'products/custom.html', context)
+        else:
+            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
+                        .values('promotion', 'valid_from', 'valid_to') \
+                        .annotate(Count('promotion')).annotate(Count('valid_from'))
+            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            return render(request, 'products/custom.html', context)
