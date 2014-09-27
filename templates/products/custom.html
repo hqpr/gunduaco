@@ -2,74 +2,114 @@
 {% block title %}Custom filter{% endblock %}
 
 {% block content %}
-    {{ products }}<br/>
-    {{ ids }}<br/>
-    {{ start }} : {{ end }} <br/>
-    {{ brand }}
+
+{#        {{ ids }}<br/>#}
+    {#    {{ products }}<br/>#}
+    <h2>{{ start }} : {{ end }}</h2>
+    {% if brand %}
+        <h3>Including brand: <b>'{{ brand }}'</b></h3>
+    {% endif %}
+    {% if category %}
+        <h3>Including category: <b>'{{ category }}'</b></h3>
+    {% endif %}
+    {% if subcategory %}
+        <h3>Including sub-category: <b>'{{ subcategory }}'</b></h3>
+    {% endif %}
 
 
-<div id="container" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
+    <div id="container" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
     <script>
-$(function () {
-    $('#container').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Valid from dates and number of promotions'
-        },
-        subtitle: {
-            text: ''
-        },
-        xAxis: {
-            type: 'category',
-            labels: {
-                rotation: -45,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Promotion'
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        tooltip: {
-            pointFormat: '<b>{point.y:.1f} promotion</b>'
-        },
-        series: [{
-            name: 'Population',
-            data: [
-                {% for c in products %}
-                    {% if forloop.last %}
-                        ['{{ c.valid_from }}', {{ c.promotion__count }}]
-                    {% else %}
-                        ['{{ c.valid_from }}', {{ c.promotion__count }}],
-                    {% endif %}
-                {% endfor %}
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: -90,
-                color: '#FFFFFF',
-                align: 'right',
-                x: 4,
-                y: 10,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif',
-                    textShadow: '0 0 3px black'
-                }
-            }
-        }]
-    });
-});
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Valid from dates and number of promotions'
+                },
+                subtitle: {
+                    text: ''
+                },
+                xAxis: {
+                    type: 'category',
+                    labels: {
+                        rotation: -45,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif'
+                        }
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Promotion'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                tooltip: {
+                    pointFormat: '<b>{point.y:.1f} promotion</b>'
+                },
+                series: [{
+                    name: 'Population',
+                    data: [
+                        {% for c in products %}
+                            {% if forloop.last %}
+                                ['{{ c.valid_from}}', {{ c.product__name__count }}]
+                                        {% else %}
+                                        ['{{ c.valid_from }}', {{ c.product__name__count }}],
+                            {% endif %}
+                        {% endfor %}
+                    ],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: -90,
+                        color: '#FFFFFF',
+                        align: 'right',
+                        x: 4,
+                        y: 10,
+                        style: {
+                            fontSize: '13px',
+                            fontFamily: 'Verdana, sans-serif',
+                            textShadow: '0 0 3px black'
+                        }
+                    }
+                }]
+            });
+        });
     </script>
+
+    <div class="container">
+        <div class="row">
+            <div class="md-col-11">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>date</th>
+                        <th>Product Name</th>
+                        <th>Promotion</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>Sub-Category</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.valid_from }}</td>
+                            <td><a href="/product/{{ product.product__id }}/">{{ product.product__name }}</a></td>
+                            <td>{{ product.product__name__count }}</td>
+                            <td>{{ brand }}</td>
+                            <td>{{ category }}</td>
+                            <td>{{ subcategory }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

@@ -26,6 +26,8 @@ urlpatterns = patterns('',
     url(r'^datesearch/$', views.datesearch),
     url(r'^search_by_date/$', views.search_by_date),
     url(r'^custom/$', views.custom),
+    url(r'^piebrand/$', views.piebrand),
+    url(r'^piecategory/$', views.piecategory),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

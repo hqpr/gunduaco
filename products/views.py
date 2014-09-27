@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from .models import Products, Prices, Brand, Category, Retailer
+from .models import Products, Prices, Brand, Category, Retailer, SubCategory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+import datetime
 
 
 """
 https://docs.djangoproject.com/en/1.5/topics/auth/default/#how-to-log-a-user-in
 http://www.highcharts.com/demo/dynamic-update
 http://extendbootstrap.com/
+
+http://simplyargh.blogspot.com/2012/04/python-27-django-14-on-bluehost.html
 
 The following was specified:
 User interactions / Selection & Search Criteria
@@ -115,8 +118,9 @@ def search(request):
             errors.append('You did not specify a query')
         else:
             product = Products.objects.filter(name__icontains=q)
-            return render(request, 'products/search_results.html',
-                {'product': product, 'query': q})
+            brands = Products.objects.filter(id__in=product).filter(active=True).values('brand__name', 'brand').distinct()
+            context = {'product': product, 'query': q, 'brands': brands}
+            return render(request, 'products/search_results.html', context)
     return render(request, 'products/index.html',
         {'errors': errors})
 
@@ -126,6 +130,7 @@ def datesearch(request):
     return render(request, 'products/search_by_date.html')
 
 
+@login_required
 def search_by_date(request):
     errors = []
     if request.GET:
@@ -141,66 +146,120 @@ def search_by_date(request):
         if not start and end:
             errors.append('No parameters')
         else:
-            result = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)
-            # paginator = Paginator(result, 10)
-            # page = request.GET.get('page')
-            # try:
-            #     result = paginator.page(page)
-            # except PageNotAnInteger:
-            #     result = paginator.page(1)
-            # except EmptyPage:
-            #     result = paginator.page(paginator.num_pages)
-            product = {'result': result, 's': start, 'e': end}
+            result = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)\
+                .filter(product__active=True).values('product__name', 'product__id').distinct()
+            brands = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)\
+                .filter(product__active=True).values('product__brand__name', 'product__brand__id').distinct()
+            categories = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)\
+                .filter(product__active=True).values('product__category__name', 'product__category__id').distinct()
+            subcategories = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)\
+                .filter(product__active=True).values('product__subcategory__name', 'product__subcategory__id').distinct()
+            subsubcategories = Prices.objects.filter(valid_from__gte=start, valid_from__lte=end).filter(promotion=True)\
+                .filter(product__active=True).values('product__subsubcategory__name', 'product__subsubcategory__id').distinct()
+            product = {'result': result,
+                       's': start,
+                       'e': end,
+                       'brands': brands,
+                       'categories': categories,
+                       'subcategories': subcategories,
+                       'subsubcategories': subsubcategories}
+
             return render(request, 'products/search_results.html', product)
     else:
         errors.append('')
-        return render(request, 'products/index.html',
-        {'errors': errors})
+        return render(request, 'products/index.html', {'errors': errors})
 
 
+@login_required
 def custom(request):
     if request.POST:
         ids = request.POST.getlist('product_id')
         start = request.POST['valid_from']
         end = request.POST['valid_to']
         try:
-            category = request.POST['category_id']
-        except:
-            category = None
-        try:
             brand = request.POST['brand_id']
         except:
             brand = None
         try:
+            category = request.POST['category_id']
+        except:
+            category = None
+        try:
             subcategory = request.POST['subcategory_id']
         except:
             subcategory = None
-        if category:
-            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-                                    .filter(product__category_id=category)\
-                                    .values('promotion', 'valid_from', 'valid_to') \
-                                    .annotate(Count('promotion')).annotate(Count('valid_from'))
-            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+
+        if brand:
+            products = Prices.objects.filter(product__id__in=ids).filter(promotion=True).filter(valid_from__gte=start)\
+                .filter(valid_from__lte=end).values('product__name', 'promotion', 'valid_from', 'product__id')\
+                .annotate(Count('product__name')).filter(product__active=True).order_by('-valid_from')\
+                .filter(product__brand_id=brand)\
+
+            brand = Brand.objects.get(id=brand)
+            context = {'products': products, 'start': start, 'end': end, 'brand': brand}
             return render(request, 'products/custom.html', context)
-        elif brand:
-            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-            .filter(product__brand_id=brand)\
-            .values('promotion', 'valid_from', 'valid_to') \
-            .annotate(Count('promotion')).annotate(Count('valid_from'))
-            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+
+        elif category:
+            products = Prices.objects.filter(product__id__in=ids).filter(promotion=True).filter(valid_from__gte=start)\
+                .filter(valid_from__lte=end).values('product__name', 'promotion', 'valid_from', 'product__id')\
+                .annotate(Count('product__name')).filter(product__active=True).order_by('-valid_from')\
+                .filter(product__category_id=category)
+            category = Category.objects.get(id=category)
+            context = {'products': products, 'start': start, 'end': end, 'category': category}
             return render(request, 'products/custom.html', context)
 
         elif subcategory:
-            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-            .filter(product__subcategory_id=brand)\
-            .values('promotion', 'valid_from', 'valid_to') \
-            .annotate(Count('promotion')).annotate(Count('valid_from'))
-            context = {'products': products, 'ids': ids, 'start': start, 'end': end}
+            products = Prices.objects.filter(product__id__in=ids).filter(promotion=True).filter(valid_from__gte=start)\
+                .filter(valid_from__lte=end).values('product__name', 'promotion', 'valid_from', 'product__id')\
+                .annotate(Count('product__name')).filter(product__active=True).order_by('-valid_from')\
+                .filter(product__subcategory_id=subcategory)
+
+            subcategory = SubCategory.objects.get(id=subcategory)
+            context = {'products': products, 'start': start, 'end': end, 'subcategory': subcategory}
             return render(request, 'products/custom.html', context)
 
-        else:
-            products = Prices.objects.filter(product_id__in=ids).filter(valid_from__gt=start) \
-                        .values('promotion', 'valid_from', 'valid_to', 'product__brand') \
-                        .annotate(Count('promotion')).annotate(Count('valid_from'))
-            context = {'products': products, 'ids': ids, 'start': start, 'end': end, 'brand': brand}
+        elif brand and category:
+            products = Prices.objects.filter(product__id__in=ids).filter(promotion=True).filter(valid_from__gte=start)\
+                .filter(valid_from__lte=end).values('product__name', 'promotion', 'valid_from', 'product__id')\
+                .annotate(Count('product__name')).filter(product__active=True).order_by('-valid_from')\
+                .filter(product__category_id=category).filter(product__brand_id=brand)
+
+            category = Category.objects.get(id=category)
+            brand = Brand.objects.get(id=brand)
+            context = {'products': products, 'start': start, 'end': end, 'category': category, 'brand': brand}
             return render(request, 'products/custom.html', context)
+        else:
+            products = Prices.objects.filter(product__id__in=ids).filter(promotion=True).filter(valid_from__gte=start)\
+                .filter(valid_from__lte=end).values('product__name', 'promotion', 'valid_from', 'product__id')\
+                .annotate(Count('product__name')).filter(product__active=True).order_by('-valid_from')
+            context = {'products': products, 'start': start, 'end': end, 'ids': ids}
+            return render(request, 'products/custom.html', context)
+
+
+@login_required
+def piebrand(request):
+    pie1 = Products.objects.filter(prices__promotion=1).filter(retailer_id=1).values('brand__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie2 = Products.objects.filter(prices__promotion=1).filter(retailer_id=2).values('brand__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie3 = Products.objects.filter(prices__promotion=1).filter(retailer_id=3).values('brand__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie4 = Products.objects.filter(prices__promotion=1).filter(retailer_id=4).values('brand__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    context = {'pie1': pie1, 'pie2': pie2, 'pie3': pie3, 'pie4': pie4}
+    return render(request, 'products/piechart.html', context)
+
+
+@login_required
+def piecategory(request):
+    pie1 = Products.objects.filter(prices__promotion=1).filter(retailer_id=1).values('category__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie2 = Products.objects.filter(prices__promotion=1).filter(retailer_id=2).values('category__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie3 = Products.objects.filter(prices__promotion=1).filter(retailer_id=3).values('category__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    pie4 = Products.objects.filter(prices__promotion=1).filter(retailer_id=4).values('category__name').\
+        annotate(Count('name')).order_by('name__count').filter(active=True)
+    cat = Category.objects.all()
+    context = {'pie1': pie1, 'pie2': pie2, 'pie3': pie3, 'pie4': pie4, 'cat': cat}
+    return render(request, 'products/piechart_category.html', context)

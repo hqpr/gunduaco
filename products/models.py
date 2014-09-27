@@ -118,7 +118,7 @@ class Prices(models.Model):
     promotion = models.BooleanField(default=STATUS_NOT_ACTIVE)
     promo_text = models.TextField()
     promo_price = models.FloatField(default=0, blank=True, null=True)
-    valid_from = models.DateTimeField(default=datetime.now())
+    valid_from = models.DateField(default=datetime.now())
     valid_to = models.DateTimeField(default=datetime.now(), blank=True, null=True)
 
     class Meta:

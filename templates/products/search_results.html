@@ -17,23 +17,41 @@
             {% endif %}
         </strong></p>
 
+
     {% if product %}
         <div class="alert alert-success"><p>Found <b>{{ product|length }}</b>:</div>
-        {% for p in product %}
-            <a href="/product/{{ p.id }}">{{ p.name }}</a> <br/>
-        {% endfor %}
+        <div class="col-md-4 pull-left">
+            {% for p in product %}
+                <a href="/product/{{ p.id }}">{{ p.name }}</a> <br/>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4 pull-right">
+        <label for="year" class="control-label input-group">Brand</label>
+        <div class="btn-group" data-toggle="buttons">
+            {% for r in brands %}
+                <label class="btn btn-default">
+                    <input type="radio" name="brand_id" value="{{ r.brand }}">{{ r.brand__name }}
+                </label>
+            {% endfor %}
+        </div>
+        </div>
+
+
+    {#   date search     #}
     {% elif result %}
-        <div class="alert alert-success"><p>Found <b>{{ result|length }}</b> products with promotion>0: </div>
+        <div class="alert alert-success"><p>Found <b>{{ result|length }}</b> products with promotion > 0: </div>
         <div class="col-md-4 pull-left">
             <form action="{% url 'products.views.custom' %}" role="form" method="post">
                 {% csrf_token %}
+                <label><input type="checkbox" id="select_all">Select all</label>
                 {% for res in result %}
                     <div class="checkbox">
-                        <label><input type="checkbox" value="{{ res.product_id }}" name="product_id">{{ res.product }}</label>
-                        <input type="hidden" value="{{ s }}" name="valid_from"/>
-                        <input type="hidden" value="{{ e }}" name="valid_to"/>
+                        <label><input type="checkbox" value="{{ res.product__id }}" name="product_id">{{ res.product__name }}</label>
                     </div>
                 {% endfor %}
+                <input type="hidden" value="{{ s }}" name="valid_from"/>
+                <input type="hidden" value="{{ e }}" name="valid_to"/>
 
         </div>
     {% else %}
@@ -41,67 +59,80 @@
     {% endif %}
     <hr/>
 
+    {% if result %}
 
-    <div class="col-md-8">
-        <label for="category" class="control-label input-group">Category</label>
-        <div class="btn-group" data-toggle="buttons">
-            {% for r in result %}
-                <label class="btn btn-default">
-                    <input type="radio" name="category_id" value="{{ r.product.category_id }}">{{ r.product.category }}
-                </label>
-            {% endfor %}
+        <div class="col-md-8">
+            <label for="category" class="control-label input-group">Category</label>
+            <div class="btn-group" data-toggle="buttons">
+                {% for r in categories %}
+                    <label class="btn btn-default">
+                        <input type="radio" name="category_id" value="{{ r.product__category__id }}">{{ r.product__category__name }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <hr/>
+            <label for="subcategory" class="control-label input-group">Sub-Category</label>
+            <div class="btn-group" data-toggle="buttons">
+                {% for r in subcategories %}
+                    <label class="btn btn-default">
+                        <input type="radio" name="subcategory_id" value="{{ r.product__subcategory__id }}">{{ r.product__subcategory__name }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <hr/>
+            <label for="subcategory" class="control-label input-group">Sub-Sub-Category</label>
+            <div class="btn-group" data-toggle="buttons">
+                {% for r in subsubcategories %}
+                    <label class="btn btn-default">
+                        <input type="radio" name="subsubcategory_id" value="{{ r.product__subsubcategory__id }}">{{ r.product__subsubcategory__name }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <label for="year" class="control-label input-group">Brand</label>
+            <div class="btn-group" data-toggle="buttons">
+                {% for r in brands %}
+                    <label class="btn btn-default">
+                        <input type="radio" name="brand_id" value="{{ r.product__brand__id }}">{{ r.product__brand__name }}
+                    </label>
+                {% endfor %}
+            </div>
+
+            <hr/>
+            <button type="submit" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-signal"></span> Build chart
+            </button>
+            </form>
         </div>
 
-        <hr/>
-        <label for="subcategory" class="control-label input-group">Sub-Category</label>
-        <div class="btn-group" data-toggle="buttons">
-            {% for r in result %}
-                <label class="btn btn-default">
-                    <input type="radio" name="subcategory_id" value="{{ r.product.subcategory_id }}">{{ r.product.subcategory }}
-                </label>
-            {% endfor %}
-        </div>
 
-        <hr/>
-        <label for="subcategory" class="control-label input-group">Sub-Sub-Category</label>
-        <div class="btn-group" data-toggle="buttons">
-            {% for r in result %}
-                <label class="btn btn-default">
-                    {% if r.product.subsubcategory %}
-                        <input type="radio" name="subsubcategory_id" value="{{ r.product.subsubcategory_id }}">{{ r.product.subsubcategory }}
-                    {% endif %}
-                </label>
-            {% endfor %}
-        </div>
-
-        <label for="year" class="control-label input-group">Brand</label>
-        <div class="btn-group" data-toggle="buttons">
-            {% for r in result %}
-                <label class="btn btn-default">
-                    <input type="radio" name="brand_id" value="{{ r.product.brand_id }}">{{ r.product.brand }}
-                </label>
-            {% endfor %}
-        </div>
-
-        <hr/>
-        <button type="submit" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-signal"></span> Build chart
-        </button>
-        </form>
-    </div>
+        <script>
+            $('#select_all').change(function() {
+                var checkboxes = $(this).closest('form').find(':checkbox');
+                if($(this).is(':checked')) {
+                    checkboxes.attr('checked', 'checked');
+                } else {
+                    checkboxes.removeAttr('checked');
+                }
+            });
+        </script>
 
 
 
-    {#    {% if result.has_previous %}#}
-    {#        <a href="%?page={{ result.previous_page_number }}"> &larr; </a>#}
-    {#    {% endif %}#}
-    {#    <ul class="pagination">#}
-    {#            <li><a href="">{{ result.number }}</a></li>#}
-    {#    {% if result.has_next %}#}
-    {#            <li><a href="&amp;?page={{ result.next_page_number }}">{{ result.next_page_number }}</a></li>#}
-    {#            <li><a href="&amp;?page={{ result.paginator.num_pages }}">{{ result.paginator.num_pages }}</a></li>#}
-    {#            <li><a href="&amp;?page={{ result.next_page_number }}" title="Next page">&rarr; </a></li>#}
-    {#        </ul>#}
-    {#    {% endif %}#}
-
+        {#    {% if result.has_previous %}#}
+        {#        <a href="%?page={{ result.previous_page_number }}"> &larr; </a>#}
+        {#    {% endif %}#}
+        {#    <ul class="pagination">#}
+        {#            <li><a href="">{{ result.number }}</a></li>#}
+        {#    {% if result.has_next %}#}
+        {#            <li><a href="&amp;?page={{ result.next_page_number }}">{{ result.next_page_number }}</a></li>#}
+        {#            <li><a href="&amp;?page={{ result.paginator.num_pages }}">{{ result.paginator.num_pages }}</a></li>#}
+        {#            <li><a href="&amp;?page={{ result.next_page_number }}" title="Next page">&rarr; </a></li>#}
+        {#        </ul>#}
+        {#    {% endif %}#}
+{#    {% else %}#}
+{#        <div class="alert alert-warning">Try to choose other range of dates <a href="{% url 'products.views.datesearch' %}">here</a></div>#}
+    {% endif %}
 {% endblock %}
