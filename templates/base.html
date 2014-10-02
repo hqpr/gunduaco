@@ -6,16 +6,19 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/bootstrap.css"/>
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/datepicker.css"/>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/bootstrap-datepicker.js"></script>
 
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js"></script>
-    <script src="http://code.highcharts.com/modules/drilldown.js"></script>
-    <script src="http://code.highcharts.com/modules/data.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tablesorter.widgets.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}css/theme.jui.css"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}css/jquery.tablesorter.pager.css"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.tablesorter.pager.js"></script>
 
     <title>{% block title %}{% endblock %}</title>
+
+    {% block extrahead %} {% endblock %}
 </head>
 <body>
     <div class="container">
@@ -36,40 +39,36 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/">Gunduaco</a>
+                        <a class="navbar-brand" href="/">PPPINTEL</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
 {#                            <li class="active"><a href="#">Main</a></li>#}
-                            <li><a href="/">Main</a></li>
+                            <li><a href="/">Prices Analyses</a></li>
+                            <li><a href="/">Promotion Analyses</a></li>
+                            <li><a href="/">Assortment Analyses</a></li>
+                            <li><a href="/">Retailer News</a></li>
 {#                            <li><a href="/categories/">Categories</a></li>#}
 {#                            <li><a href="{% url 'products.views.charts' %}">Charts</a></li>#}
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pie Charts <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/piebrand/">By brand</a></li>
-                                    <li><a href="/piecategory/">By category</a></li>
-{% comment %}
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Link</a></li>
-{% endcomment %}
-                                </ul>
-                            </li>
-                            <li style="padding-top: 8px;">
-                                <button id='search' type="button" class="btn btn-primary">Search by dates</button>
-                            </li>
+{#                            <li class="dropdown">#}
+{#                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pie Charts <span class="caret"></span></a>#}
+{#                                <ul class="dropdown-menu" role="menu">#}
+{#                                    <li><a href="/piebrand/">By brand</a></li>#}
+{#                                    <li><a href="/piecategory/">By category</a></li>#}
+{#                                </ul>#}
+{#                            </li>#}
+{#                            <li style="padding-top: 8px;">#}
+{#                                <button id='search' type="button" class="btn btn-primary">Search by dates</button>#}
+{#                            </li>#}
                         </ul>
-                        <form class="navbar-form navbar-left" role="search" action="/search/">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search" name="q">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
+{#                        <form class="navbar-form navbar-left" role="search" action="/search/">#}
+{#                            <div class="form-group">#}
+{#                                <input type="text" class="form-control" placeholder="Search" name="q">#}
+{#                            </div>#}
+{#                            <button type="submit" class="btn btn-default">Submit</button>#}
+{#                        </form>#}
 
                         <ul class="nav navbar-nav navbar-right">
 
@@ -90,7 +89,26 @@
 
         {% endif %}
         <div class="col-md-12">
-            {% block content %}{% endblock %}
+            <div class="col-md-2 pull-left">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/">Prices Analyses</a></li>
+                    <li><a href="/">Promotion Analyses</a></li>
+{#                    <li><a href="/">Assortment Analyses</a></li>#}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortment Analyses<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/piebrand/">By brand</a></li>
+                            <li><a href="/piecategory/">By category</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-9 pull-right">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
         </div>
     </div>

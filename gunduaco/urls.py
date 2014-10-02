@@ -28,6 +28,7 @@ urlpatterns = patterns('',
     url(r'^custom/$', views.custom),
     url(r'^piebrand/$', views.piebrand),
     url(r'^piecategory/$', views.piecategory),
+    url(r'^pie/$', views.pie_by_retailer),
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

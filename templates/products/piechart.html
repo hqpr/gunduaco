@@ -1,204 +1,318 @@
 {% extends 'base.html' %}
-{% block title %}Piecharts{% endblock %}
+{% block title %}Piecharts by brand{% endblock %}
+{% block extrahead %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            {% if pie1 %}
+                var data1 = google.visualization.arrayToDataTable([
+                    ['Brand', 'Promotions'],
+                    {% for p in pie1 %}
+                        {% if forloop.last %}
+                            ['{{ p.brand__name }}', {{ p.name__count }}]
+                                    {% else %}
+                                    ['{{ p.brand__name }}', {{ p.name__count }}],
+                        {% endif %}
+                    {% endfor %}
+                ]);
+                var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+                chart1.draw(data1);
+            {% endif %}
+
+            {% if pie4 %}
+                var data4 = google.visualization.arrayToDataTable([
+                    ['Brand', 'Promotions'],
+                    {% for p in pie4 %}
+                        {% if forloop.last %}
+                            ['{{ p.brand__name }}', {{ p.name__count }}]
+                                    {% else %}
+                                    ['{{ p.brand__name }}', {{ p.name__count }}],
+                        {% endif %}
+                    {% endfor %}
+                ]);
+                var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+                chart4.draw(data4);
+            {% endif %}
+
+            var data2 = google.visualization.arrayToDataTable([
+                ['Brand', 'Promotions'],
+                {% for p in pie2 %}
+                    {% if forloop.last %}
+                        ['{{ p.brand__name }}', {{ p.name__count }}]
+                                {% else %}
+                                ['{{ p.brand__name }}', {{ p.name__count }}],
+                    {% endif %}
+                {% endfor %}
+            ]);
+
+            var data3 = google.visualization.arrayToDataTable([
+                ['Brand', 'Promotions'],
+                {% for p in pie3 %}
+                    {% if forloop.last %}
+                        ['{{ p.brand__name }}', {{ p.name__count }}]
+                                {% else %}
+                                ['{{ p.brand__name }}', {{ p.name__count }}],
+                    {% endif %}
+                {% endfor %}
+            ]);
+
+
+
+            var options = {
+                title: ''
+            };
+
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+            var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+            chart2.draw(data2, options);
+            chart3.draw(data3, options);
+        }
+    </script>
+
+{% endblock %}
 
 {% block content %}
-    <h1>Hoogvliet</h1>
-      <div id="container3" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
-    <script>
-        $(function () {
-            $('#container3').highcharts({
-                chart3: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: 1,//null,
-                    plotShadow: false
-                },
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    pointFormat: '{series1.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    type: 'pie',
-                    name: 'Products',
-                    data: [
-                        {% for p in pie1 %}
-                            {% if forloop.last %}
-                                ['{{ p.brand__name }}', {{ p.name__count }}]
-                                        {% else %}
-                                        ['{{ p.brand__name }}', {{ p.name__count }}],
-                            {% endif %}
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#">Reteiler's brand</a></li>
+    </ul>
+
+    <h2>Selections</h2>
+    <form action="/pie/" role="search" method="post">
+        <div class="col-md-4 pull-left">
+            <h4>Retailers:</h4>
+            <div class="btn-group-vertical">
+            <input name="retailer" checked="checked" type="radio"> All retailers
+                {% for r in retailers %}
+                    <label class="radio">
+                        <input name="retailer" id="{{ r.id }}" value="{{ r.id }}" type="radio"> {{ r.name }}
+                    </label>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-8 pull-right">
+            <h4>Period:</h4>
+            <div class="date-form">
+                <div class="col-md-4">
+                    <form action="/pie/" role="search" >
+                        {% csrf_token %}
+                        <div class="control-group">
+                            <label for="date-picker-2" class="control-label">Start Date</label>
+                            <div class="controls">
+                                <div class="input-group">
+                                    <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                                    <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="date-picker-3" class="control-label">End Date</label>
+                            <div class="controls">
+                                <div class="input-group">
+                                    <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                                    </label>
+                                    <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="pull-right"><button type="submit" class="btn btn-default">Rebuid charts</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div style="float: left">
+            <div class="col-md-8">
+                <hr/>
+                {% if pie1 %}
+                    <h3>Hoogvliet</h3>
+                    <div id="piechart1" style="width: 500px; height: 300px;"></div>
+                {% endif %}
+                {% if pie2 %}
+                    <h3>Albert Heijn Online</h3>
+                    <div id="piechart2" style="width: 500px; height: 300px;"></div>
+                {% endif %}
+                <hr/>
+                {% if pie3 %}
+                    <h3>Plus online</h3>
+                    <div id="piechart3" style="width: 500px; height: 300px;"></div>
+                {% endif %}
+                <hr/>
+                {% if pie4 %}
+                    <h3>Coop online</h3>
+                    <div id="piechart4" style="width: 500px; height: 300px;"></div>
+                {% endif %}
+
+            </div>
+
+        </div>
+        <div style="float: left">
+{#            <h3>Top 10</h3>#}
+
+            {% if pie1 %}
+                <div style="height: 400px">
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for product in pie1_tt %}
+                            <tr>
+                                <td>{{ product.brand__name }}</td>
+                                <td>{{ product.name__count }}</td>
+                            </tr>
                         {% endfor %}
-                    ]
-                }]
-            });
-        });
-
-
-    </script>
-
-    <hr/>
-    <h1>Albert Heijn Online</h1>
-    <div id="container2" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
-    <script>
-        $(function () {
-            $('#container2').highcharts({
-                chart2: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: 1,//null,
-                    plotShadow: false
-                },
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    pointFormat: '{series1.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    type: 'pie',
-                    name: 'Products',
-                    data: [
-                        {% for p in pie2 %}
-                            {% if forloop.last %}
-                                ['{{ p.brand__name }}', {{ p.name__count }}]
-                                        {% else %}
-                                        ['{{ p.brand__name }}', {{ p.name__count }}],
-                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+            <div style="height: 400px">
+                <table class="table table-bordered">
+                    <tbody>
+                    {% for product in pie2_tt %}
+                        <tr>
+                            <td>{{ product.brand__name }}</td>
+                            <td>{{ product.name__count }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <table class="table table-bordered">
+                <tbody>
+                {% for product in pie3_tt %}
+                    <tr>
+                        <td>{{ product.brand__name }}</td>
+                        <td>{{ product.name__count }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% if pie4 %}
+                <div style="height: 400px">
+                    <table class="table table-striped">
+                        <tbody>
+                        {% for product in pie1_tt %}
+                            <tr>
+                                <td>{{ product.brand__name }}</td>
+                                <td>{{ product.name__count }}</td>
+                            </tr>
                         {% endfor %}
-                    ]
-                }]
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+
+        </div>
+
+{% comment %}        <div class="col-md-12">
+            <h5>List</h5>
+            <table class="table table-bordered">
+                <tbody>
+                {% for p in lst %}
+                    <tr>
+                        <td>{{ p.retailer__name }}</td>
+                        <td>{{ p.brand__name }}</td>
+                        <td>{{ p.name__count }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% if lst.has_previous %}
+                <a href="?page={{ lst.previous_page_number }}"> &larr; </a>
+            {% endif %}
+            <a class="blogNavActive">{{ lst.number }}</a>
+            {% if lst.has_next %}
+                <a href="?page={{ lst.next_page_number }}">{{ lst.next_page_number }}</a>
+                <span> ... </span>
+                <a href="?page={{ lst.paginator.num_pages }}">{{ lst.paginator.num_pages }}</a>
+                <a href="?page={{ lst.next_page_number }}" title="Next page">&rarr; </a>
+            {% endif %}
+        </div>{% endcomment %}
+
+
+
+<table class="tablesorter">
+    <thead>
+        <tr>
+            <th class="filter-select filter-exact" data-placeholder="Pick a retailer">Retailer</th>
+            <th class="filter-select filter-exact" data-placeholder="Pick a brand">Brand</th>
+            <th>Products</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Retailer</th>
+            <th>Brand</th>
+            <th>Products</th>
+        </tr>
+        <tr>
+            <th colspan="7" class="ts-pager form-horizontal">
+                <button type="button" class="btn first"><i class="icon-step-backward glyphicon glyphicon-step-backward"></i>
+                </button>
+                <button type="button" class="btn prev"><i class="icon-arrow-left glyphicon glyphicon-backward"></i>
+                </button>	<span class="pagedisplay"></span>
+                <!-- this can be any element, including an input -->
+                <button type="button" class="btn next"><i class="icon-arrow-right glyphicon glyphicon-forward"></i>
+                </button>
+                <button type="button" class="btn last"><i class="icon-step-forward glyphicon glyphicon-step-forward"></i>
+                </button>
+                <select class="pagesize input-mini" title="Select page size">
+                    <option selected="selected" value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                </select>
+                <select class="pagenum input-mini" title="Select page number"></select>
+            </th>
+        </tr>
+    </tfoot>
+    <tbody>
+
+        {% for p in lst %}
+            <tr>
+                <td>{{ p.retailer__name }}</td>
+                <td>{{ p.brand__name }}</td>
+                <td>{{ p.name__count }}</td>
+            </tr>
+        {% endfor %}
+
+
+    </tbody>
+</table>
+
+
+
+        <script type="text/javascript">
+
+            $("table").tablesorter({
+                theme: "bootstrap",
+                widthFixed: true,
+                headerTemplate: '{content} {icon}',
+                widgets: ["uitheme", "filter", "zebra"],
+            })
+                .tablesorterPager({
+                container: $(".ts-pager"),
+                cssGoto: ".pagenum",
+                output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
             });
-        });
 
-
-    </script>
-
-    <hr/>
-    <h1>Plus online</h1>
-    <div id="container1" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
-    <script>
-        $(function () {
-            $('#container1').highcharts({
-                chart1: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: 1,//null,
-                    plotShadow: false
-                },
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    type: 'pie',
-                    name: 'Products',
-                    data: [
-                        {% for p in pie3 %}
-                            {% if forloop.last %}
-                                ['{{ p.brand__name }}', {{ p.name__count }}]
-                                        {% else %}
-                                        ['{{ p.brand__name }}', {{ p.name__count }}],
-                            {% endif %}
-                        {% endfor %}
-                    ]
-                }]
+            $(".date-picker").datepicker();
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+                $("#msg").text(val + " changed");
             });
-        });
-
-
-    </script>
-
-    <hr/>
-    <h1>Coop online</h1>
-  <div id="container4" style="min-width: 500px; height: 400px; margin: 0 auto"></div>
-    <script>
-        $(function () {
-            $('#container4').highcharts({
-                chart4: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: 1,//null,
-                    plotShadow: false
-                },
-                title: {
-                    text: ''
-                },
-                tooltip: {
-                    pointFormat: '{series1.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    type: 'pie',
-                    name: 'Products',
-                    data: [
-                        {% for p in pie4 %}
-                            {% if forloop.last %}
-                                ['{{ p.brand__name }}', {{ p.name__count }}]
-                                        {% else %}
-                                        ['{{ p.brand__name }}', {{ p.name__count }}],
-                            {% endif %}
-                        {% endfor %}
-                    ]
-                }]
-            });
-        });
-
-
-    </script>
-
-    <hr/>
-
+        </script>
 
 
 
