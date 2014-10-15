@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block title %}Promotion history brands{% endblock %}
+{% block extrahead %}
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Year', 'Sales', 'Expenses'],
+    {% for p in result %}
+        {% if forloop.last %}
+            ['{{ p.prices__valid_from }}', {{ p.name__count }}]
+                    {% else %}
+                    ['{{ p.brand__name }}', {{ p.name__count }}],
+        {% endif %}
+    {% endfor %}
+    ['2004',  1000,      400],
+    ['2005',  1170,      460],
+    ['2006',  660,       1120],
+    ['2007',  1030,      540]
+  ]);
+
+  var options = {
+    title: 'Company Performance',
+    hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+  chart.draw(data, options);
+
+}
+    </script>
+{% endblock %}
+{% block content %}
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#">Promotion history brands</a></li>
+    </ul>
+
+    <h2>Selections</h2>
+    <form action="/promoanalyses/" method="post" role="form">
+        <div class="col-md-10">
+            <div style="float: left; width: 33%; height: 200px">
+                <label for="retailer">Retailers</label>
+                <select class="selectpicker" id="retailer" style="width: 200px">
+                    {% for r in retailers %}
+                        <option>{{ r.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="brand">Brands</label>
+                <select class="selectpicker" id="brand" style="width: 200px">
+                    {% for b in brands %}
+                        <option>{{ b.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <div style="float: left; width: 33%; height: 200px">
+
+                <div class="control-group">
+                    <label for="date-picker-2" class="control-label">Start Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                            <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="date-picker-3" class="control-label">End Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                            <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="float: right; width: 28%; height: 200px">
+                <div class="btn-group-vertical">
+                        <label for id="week" class="radio">
+                            <input name="date" id="week" value="" type="radio"> Week
+                        </label>
+                        <label for id="month" class="radio">
+                            <input name="date" id="month" value="" type="radio"> Month
+                        </label>
+                        <label for id="quarter" class="radio">
+                            <input name="date" id="quarter" value="" type="radio"> Quarter
+                        </label>
+                        <label for id="quarter" class="radio">
+                            <input name="date" id="year" value="" type="radio"> Year
+                        </label>
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+            <hr/>
+{% comment %}            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000">
+                <span id="brand_selected"></span>
+                <span id="retailer_selected"></span>
+                <span id="category_selected"></span>
+                <span id="subcategory_selected"></span>
+                <span id="subsubcategory_selected"></span>
+            </div>
+            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000"></div>{% endcomment %}
+
+            <h2>Reports</h2>
+        </div>
+    <button type="submit" class="btn btn-default">Build chart</button>
+    </form>
+
+        <div class="col-md-10">
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
+            {{ result }}
+        </div>
+
+        <script type="text/javascript">
+
+            $(".date-picker").datepicker();
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+                $("#msg").text(val + " changed");
+            });
+
+{% endblock %}

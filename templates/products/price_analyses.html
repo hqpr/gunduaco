@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Piecharts by brand{% endblock %}
+{% block extrahead %}
+{% endblock %}
+{% block content %}
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#">Products Price History</a></li>
+    </ul>
+
+    <h2>Selections</h2>
+    <form action="/" role="form">
+        <div class="col-md-10">
+            <div style="float: left; width: 33%; height: 200px">
+                <label for="product">Product</label>
+
+                <select class="selectpicker" id="product" style="width: 200px">
+                    {% for p in products %}
+                        <option>{{ p.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <div style="float: left; width: 33%; height: 200px">
+                <label for="retailer">Retailer</label>
+                <select class="selectpicker" id="retailer" style="width: 200px">
+                    {% for r in retailers %}
+                        <option>{{ r.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category">Category</label>
+                <select class="selectpicker" id="category" style="width: 200px">
+                    {% for c in category %}
+                        <option>{{ c.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="subcategory">Sub Category</label>
+                <select class="selectpicker" id="subcategory" style="width: 200px">
+                    {% for sc in subcategory %}
+                        <option>{{ sc.name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="subsubcategory">Sub Sub Category</label>
+                <select class="selectpicker" id="subsubcategory" style="width: 200px">
+                    {% for ssc in subsubcategory %}
+                        <option>{{ ssc.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <div style="float: left; width: 33%; height: 200px">
+
+                <div class="control-group">
+                    <label for="date-picker-2" class="control-label">Start Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                            <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="date-picker-3" class="control-label">End Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                            <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <hr/>
+            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000">
+                <div id="product_selected"></div>
+                <div id="retailer_selected"></div>
+                <div id="category_selected"></div>
+                <div id="subcategory_selected"></div>
+                <div id="subsubcategory_selected"></div>
+            </div>
+            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000"></div>
+
+            <h2>Reports</h2>
+        </div>
+    </form>
+
+        <script type="text/javascript">
+
+            $(".date-picker").datepicker();
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+                $("#msg").text(val + " changed");
+            });
+
+            $('#product').on("change", function () {
+                var id = $(this).attr("id");
+                var product = $(this).val();
+                $("#product_selected").text(product);
+            });
+
+            $('#retailer').on("change", function () {
+                var id = $(this).attr("id");
+                var retailer = $(this).val();
+                $("#retailer_selected").text(retailer);
+            });
+
+            $('#category').on("change", function () {
+                var id = $(this).attr("id");
+                var category = $(this).val();
+                $("#category_selected").text(category);
+            });
+
+            $('#subcategory').on("change", function () {
+                var id = $(this).attr("id");
+                var subcategory = $(this).val();
+                $("#subcategory_selected").text(subcategory);
+            });
+
+            $('#subsubcategory').on("change", function () {
+                var id = $(this).attr("id");
+                var subsubcategory = $(this).val();
+                $("#subsubcategory_selected").text(subsubcategory);
+            });
+        </script>
+{% endblock %}

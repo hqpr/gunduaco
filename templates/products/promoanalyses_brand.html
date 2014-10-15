@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% block title %}Promotion history brands{% endblock %}
+{% block extrahead %}
+{% endblock %}
+{% block content %}
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#">Promotion history brands</a></li>
+    </ul>
+
+    <h2>Selections</h2>
+    <form action="/promoanalyses/" method="post" role="form">
+    {% csrf_token %}
+        <div class="col-md-10">
+            <div style="float: left; width: 33%; height: 200px">
+                <label for="retailer">Retailers</label>
+                <select class="selectpicker" name="retailer" id="retailer" style="width: 200px">
+                    {% for r in retailers %}
+                        <option id="retailer_{{ r.id }}" value="{{ r.id }}">{{ r.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="brand">Brands</label>
+                <select class="selectpicker" id="brand" name="brand" style="width: 200px">
+                    {% for b in brands %}
+                        <option value="{{ b.id }}">{{ b.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <div style="float: left; width: 33%; height: 200px">
+
+                <div class="control-group">
+                    <label for="date-picker-2" class="control-label">Start Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                            <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="date-picker-3" class="control-label">End Date</label>
+                    <div class="controls">
+                        <div class="input-group">
+                            <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+                            </label>
+                            <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="float: right; width: 28%; height: 200px">
+                <div class="btn-group-vertical">
+                        <label for id="week" class="radio">
+                            <input name="date" id="week" value="" type="radio"> Week
+                        </label>
+                        <label for id="month" class="radio">
+                            <input name="date" id="month" value="" type="radio"> Month
+                        </label>
+                        <label for id="quarter" class="radio">
+                            <input name="date" id="quarter" value="" type="radio"> Quarter
+                        </label>
+                        <label for id="quarter" class="radio">
+                            <input name="date" id="year" value="" type="radio"> Year
+                        </label>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <hr/>
+{% comment %}            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000">
+                <span id="brand_selected"></span>
+                <span id="retailer_selected"></span>
+                <span id="category_selected"></span>
+                <span id="subcategory_selected"></span>
+                <span id="subsubcategory_selected"></span>
+            </div>
+            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000"></div>{% endcomment %}
+
+            <h2>Reports</h2>
+        </div>
+    <button type="submit" class="btn btn-default">Build chart</button>
+    </form>
+
+        <script type="text/javascript">
+
+            $(".date-picker").datepicker();
+            $(".date-picker").on("change", function () {
+                var id = $(this).attr("id");
+                var val = $("label[for='" + id + "']").text();
+                $("#msg").text(val + " changed");
+            });
+
+            $('#brand').on("change", function () {
+                var id = $(this).attr("id");
+                var product = $(this).val();
+                $("#brand_selected").text(product);
+            });
+
+{#            $('#retailer').on("change", function () {#}
+{#                var id = $(this).attr("id");#}
+{#                var retailer = $(this).val();#}
+{#                $("#retailer_selected").text(retailer);#}
+{#            });#}
+
+            $('#category').on("change", function () {
+                var id = $(this).attr("id");
+                var category = $(this).val();
+                $("#category_selected").text(category);
+            });
+
+            $('#subcategory').on("change", function () {
+                var id = $(this).attr("id");
+                var subcategory = $(this).val();
+                $("#subcategory_selected").text(subcategory);
+            });
+
+            $('#subsubcategory').on("change", function () {
+                var id = $(this).attr("id");
+                var subsubcategory = $(this).val();
+                $("#subsubcategory_selected").text(subsubcategory);
+            });
+        </script>
+{% endblock %}

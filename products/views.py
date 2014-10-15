@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from .models import Products, Prices, Brand, Category, Retailer, SubCategory
+from .models import Products, Prices, Brand, Category, Retailer, SubCategory, SubSubCategory
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -309,13 +309,86 @@ def pie_by_retailer(request):
 @login_required
 def piecategory(request):
     pie1 = Products.objects.filter(prices__promotion=1).filter(retailer_id=1).values('category__name').\
-        annotate(Count('name')).order_by('name__count').filter(active=True)
+        annotate(Count('name')).order_by('name__count').filter(active=True, prices__valid_from=datetime.datetime.today())
+    pie1_tt = Products.objects.filter(prices__promotion=1).filter(retailer_id=2).values('category__name').\
+        annotate(Count('name')).order_by('-name__count').filter(active=True, prices__valid_from=datetime.datetime.today())[:10]
     pie2 = Products.objects.filter(prices__promotion=1).filter(retailer_id=2).values('category__name').\
-        annotate(Count('name')).order_by('name__count').filter(active=True)
+        annotate(Count('name')).order_by('name__count').filter(active=True, prices__valid_from=datetime.datetime.today())
+    pie2_tt = Products.objects.filter(prices__promotion=1).filter(retailer_id=2).values('category__name').\
+        annotate(Count('name')).order_by('-name__count').filter(active=True, prices__valid_from=datetime.datetime.today())[:10]
     pie3 = Products.objects.filter(prices__promotion=1).filter(retailer_id=3).values('category__name').\
-        annotate(Count('name')).order_by('name__count').filter(active=True)
+        annotate(Count('name')).order_by('name__count').filter(active=True, prices__valid_from=datetime.datetime.today())
+    pie3_tt = Products.objects.filter(prices__promotion=1).filter(retailer_id=3).values('category__name').\
+        annotate(Count('name')).order_by('-name__count').filter(active=True, prices__valid_from=datetime.datetime.today())[:10]
     pie4 = Products.objects.filter(prices__promotion=1).filter(retailer_id=4).values('category__name').\
-        annotate(Count('name')).order_by('name__count').filter(active=True)
-    cat = Category.objects.all()
-    context = {'pie1': pie1, 'pie2': pie2, 'pie3': pie3, 'pie4': pie4, 'cat': cat}
+        annotate(Count('name')).order_by('name__count').filter(active=True, prices__valid_from=datetime.datetime.today())
+    pie4_tt = Products.objects.filter(prices__promotion=1).filter(retailer_id=4).values('category__name').\
+        annotate(Count('name')).order_by('-name__count').filter(active=True, prices__valid_from=datetime.datetime.today())[:10]
+
+    retailers = Retailer.objects.all()
+    today = datetime.datetime.today()
+
+    lst = Products.objects.filter(active=True).values('name', 'retailer__name', 'category__name').annotate(Count('name'))[:1000]
+
+    context = {'pie1': pie1, 'pie2': pie2,
+               'pie3': pie3, 'pie4': pie4,
+               'retailers': retailers,
+               'pie1_tt': pie1_tt,
+               'pie2_tt': pie2_tt,
+               'pie3_tt': pie3_tt,
+               'pie4_tt': pie4_tt,
+               'lst': lst,
+               'today': today}
     return render(request, 'products/piechart_category.html', context)
+
+@login_required
+def price_analyses(request):
+    products = Products.objects.filter(active=True)[:10]
+    retailers = Retailer.objects.all()
+    category = Category.objects.all()
+    subcategory = SubCategory.objects.all()
+    subsubcategory = SubSubCategory.objects.all()
+    today = datetime.datetime.today()
+    context = {'products': products,
+               'retailers': retailers,
+               'category': category,
+               'subcategory': subcategory,
+               'subsubcategory': subsubcategory,
+               'today': today}
+    return render(request, 'products/price_analyses.html', context)
+
+
+@login_required
+def promoanalyses_brand(request):
+    retailers = Retailer.objects.all()
+    brands = Brand.objects.all()
+    context = {'retailers': retailers, 'brands': brands}
+    return render(request, 'products/promoanalyses_brand.html', context)
+
+
+@login_required
+def promoanalyses(request):
+    if request.POST:
+        retailer = request.POST['retailer']
+        brand = request.POST['brand']
+        start = request.POST['s']
+        start = start.split('/')
+        start = '%s-%s-%s' % (start[2], start[0], start[1])
+        end = request.POST['e']
+        try:
+            end = end.split('/')
+            end = '%s-%s-%s' % (end[2], end[0], end[1])
+        except:
+            end = ''
+        result = Products.objects.filter(prices__promotion=True, active=True, retailer_id=retailer,
+                                         brand_id=brand,
+                                         prices__valid_from__gte=start,
+                                         prices__valid_to__lte=end).values('retailer__name', 'brand__name',
+                                                                           'prices__valid_from') \
+            .annotate(Count('prices__promotion'))
+
+        context = {'result': result}
+        return render(request, 'products/promoanalyses.html', context)
+
+
+
