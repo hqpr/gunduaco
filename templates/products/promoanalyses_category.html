@@ -1,31 +1,44 @@
 {% extends 'base.html' %}
-{% block title %}Promotion history brands{% endblock %}
+{% block title %}Promotion history category{% endblock %}
 {% block extrahead %}
 {% endblock %}
 {% block content %}
     <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="#">Promotion history brands</a></li>
+        <li class="active"><a href="#">Promotion history category</a></li>
     </ul>
 
-    <h2>Selections</h2>
+    <h2>Category filter</h2>
     <form action="/promoanalyses/" method="post" role="form">
     {% csrf_token %}
         <div class="col-md-10">
             <div style="float: left; width: 33%; height: 200px">
-                <label for="retailer">Retailers</label>
+                <label for="retailer">Retailer</label>
                 <select class="selectpicker" name="retailer" id="retailer" style="width: 200px">
                     {% for r in retailers %}
                         <option id="retailer_{{ r.id }}" value="{{ r.id }}">{{ r.name }}</option>
                     {% endfor %}
                 </select>
 
-                <label for="brand">Brands</label>
-                <select class="selectpicker" id="brand" name="brand" style="width: 200px">
-                    {% for b in brands %}
-                        <option value="{{ b.id }}">{{ b.name }}</option>
+                <label for="categories">Category</label>
+                <select class="selectpicker" name="categories" id="retailer" style="width: 200px">
+                    {% for c in categories %}
+                        <option id="category_{{ c.id }}" value="{{ c.id }}">{{ c.name }}</option>
                     {% endfor %}
                 </select>
 
+                <label for="subcategories">Sub Category</label>
+                <select class="selectpicker" id="brand" name="subcategories" style="width: 200px">
+                    {% for sc in subcategories %}
+                        <option id="subcategory_{{ sc.id }}" value="{{ sc.id }}">{{ sc.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="subsubcategories">Sub Sub Category</label>
+                <select class="selectpicker" id="brand" name="subsubcategories" style="width: 200px">
+                    {% for ssc in subsubcategories %}
+                        <option id="subsubcategory_{{ ssc.id }}" value="{{ ssc.id }}">{{ ssc.name }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div style="float: left; width: 33%; height: 200px">
@@ -125,4 +138,5 @@
                 $("#subsubcategory_selected").text(subsubcategory);
             });
         </script>
+
 {% endblock %}

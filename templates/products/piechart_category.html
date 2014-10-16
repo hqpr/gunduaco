@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Piecharts by brand{% endblock %}
+{% block title %}Piecharts by category{% endblock %}
 {% block extrahead %}
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
@@ -106,7 +106,7 @@
                             <label for="date-picker-2" class="control-label">Start Date</label>
                             <div class="controls">
                                 <div class="input-group">
-                                    <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                                    <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today|date:'d/m/Y' }}"/>
                                     <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
                                     </label>
                                 </div>
@@ -119,7 +119,7 @@
                                 <div class="input-group">
                                     <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
                                     </label>
-                                    <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                                    <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today|date:'d/m/Y' }}"/>
                                 </div>
                             </div>
                         </div>
@@ -213,33 +213,6 @@
 
 
         </div>
-
-{% comment %}        <div class="col-md-12">
-            <h5>List</h5>
-            <table class="table table-bordered">
-                <tbody>
-                {% for p in lst %}
-                    <tr>
-                        <td>{{ p.retailer__name }}</td>
-                        <td>{{ p.category__name }}</td>
-                        <td>{{ p.name__count }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            {% if lst.has_previous %}
-                <a href="?page={{ lst.previous_page_number }}"> &larr; </a>
-            {% endif %}
-            <a class="blogNavActive">{{ lst.number }}</a>
-            {% if lst.has_next %}
-                <a href="?page={{ lst.next_page_number }}">{{ lst.next_page_number }}</a>
-                <span> ... </span>
-                <a href="?page={{ lst.paginator.num_pages }}">{{ lst.paginator.num_pages }}</a>
-                <a href="?page={{ lst.next_page_number }}" title="Next page">&rarr; </a>
-            {% endif %}
-        </div>{% endcomment %}
-
-
 
 <table class="tablesorter">
     <thead>

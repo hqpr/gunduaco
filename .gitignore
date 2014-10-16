@@ -56,3 +56,5 @@ target/
 
 .pyc
 .xml
+
+gunduaco/settings.py

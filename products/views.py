@@ -236,6 +236,7 @@ def custom(request):
             return render(request, 'products/custom.html', context)
 
 
+# new specs
 @login_required
 def piebrand(request):
     pie1 = Products.objects.filter(prices__promotion=1).filter(retailer_id=1).values('brand__name').\
@@ -256,18 +257,7 @@ def piebrand(request):
         annotate(Count('name')).order_by('-name__count').filter(active=True, prices__valid_from=datetime.datetime.today())[:10]
 
     lst = Products.objects.filter(active=True).values('name', 'retailer__name', 'brand__name').annotate(Count('name'))[:1000]
-
     retailers = Retailer.objects.all()
-
-    # paginator = Paginator(lst, 10)
-    # page = request.GET.get('page')
-    # try:
-    #     lst = paginator.page(page)
-    # except PageNotAnInteger:
-    #     lst = paginator.page(1)
-    # except EmptyPage:
-    #     lst = paginator.page(paginator.num_pages)
-
     today = datetime.datetime.today()
 
     context = {'pie1': pie1, 'pie2': pie2,
@@ -280,6 +270,7 @@ def piebrand(request):
                'lst': lst,
                'today': today}
     return render(request, 'products/piechart.html', context)
+
 
 @login_required
 def pie_by_retailer(request):
@@ -327,7 +318,6 @@ def piecategory(request):
 
     retailers = Retailer.objects.all()
     today = datetime.datetime.today()
-
     lst = Products.objects.filter(active=True).values('name', 'retailer__name', 'category__name').annotate(Count('name'))[:1000]
 
     context = {'pie1': pie1, 'pie2': pie2,
@@ -340,6 +330,7 @@ def piecategory(request):
                'lst': lst,
                'today': today}
     return render(request, 'products/piechart_category.html', context)
+
 
 @login_required
 def price_analyses(request):
@@ -356,6 +347,24 @@ def price_analyses(request):
                'subsubcategory': subsubcategory,
                'today': today}
     return render(request, 'products/price_analyses.html', context)
+
+
+@login_required
+def price_analyses_result(request):
+    if request.POST:
+        product = request.POST['product']
+        retailer = request.POST['retailer']
+        start = request.POST['s']
+        start = start.split('/')
+        start = '%s-%s-%s' % (start[2], start[0], start[1])
+        end = request.POST['e']
+        try:
+            end = end.split('/')
+            end = '%s-%s-%s' % (end[2], end[0], end[1])
+        except:
+            end = ''
+        context = {'product': product, 'retailer': retailer, 'start': start, 'end': end}
+        return render(request, 'products/price_analyses_results.html', context)
 
 
 @login_required
@@ -390,5 +399,18 @@ def promoanalyses(request):
         context = {'result': result}
         return render(request, 'products/promoanalyses.html', context)
 
+
+@login_required
+def promoanalyses_category(request):
+    retailers = Retailer.objects.all()
+    categories = Category.objects.all()
+    subcategories = SubCategory.objects.all()
+    subsubcategories = SubSubCategory.objects.all()
+    today = datetime.datetime.today()
+    context = {'categories': categories, 'subcategories': subcategories,
+               'subsubcategories': subsubcategories, 'retailers': retailers,
+               'today': today}
+
+    return render(request, 'products/promoanalyses_category.html', context)
 
 

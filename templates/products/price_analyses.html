@@ -8,41 +8,42 @@
     </ul>
 
     <h2>Selections</h2>
-    <form action="/" role="form">
+    <form action="/prices_analyses/result/" role="form" method="post">
+    {% csrf_token %}
         <div class="col-md-10">
             <div style="float: left; width: 33%; height: 200px">
                 <label for="product">Product</label>
 
-                <select class="selectpicker" id="product" style="width: 200px">
+                <select class="selectpicker" id="product" name="product" style="width: 200px">
                     {% for p in products %}
-                        <option>{{ p.name }}</option>
+                        <option id="product_{{ p.id }}" value="{{ p.id }}">{{ p.name }}</option>
                     {% endfor %}
                 </select>
 
             </div>
             <div style="float: left; width: 33%; height: 200px">
                 <label for="retailer">Retailer</label>
-                <select class="selectpicker" id="retailer" style="width: 200px">
+                <select class="selectpicker" id="retailer" name="retailer" style="width: 200px">
                     {% for r in retailers %}
-                        <option>{{ r.name }}</option>
+                        <option id="retailer_{{ r.id }}" value="{{ r.id }}">{{ r.name }}</option>
                     {% endfor %}
                 </select>
                 <label for="category">Category</label>
-                <select class="selectpicker" id="category" style="width: 200px">
+                <select class="selectpicker" id="category" name="category" style="width: 200px">
                     {% for c in category %}
-                        <option>{{ c.name }}</option>
+                        <option id="category_{{ c.id }}" value="{{ c.id }}">{{ c.name }}</option>
                     {% endfor %}
                 </select>
                 <label for="subcategory">Sub Category</label>
-                <select class="selectpicker" id="subcategory" style="width: 200px">
+                <select class="selectpicker" id="subcategory" name="subcategory" style="width: 200px">
                     {% for sc in subcategory %}
-                        <option>{{ sc.name }}</option>
+                        <option id="subcategory_{{ sc.id }}" value="{{ sc.id }}">{{ sc.name }}</option>
                     {% endfor %}
                 </select>
                 <label for="subsubcategory">Sub Sub Category</label>
-                <select class="selectpicker" id="subsubcategory" style="width: 200px">
+                <select class="selectpicker" id="subsubcategory" name="subsubcategory" style="width: 200px">
                     {% for ssc in subsubcategory %}
-                        <option>{{ ssc.name }}</option>
+                        <option id="subsubcategory_{{ ssc.id }}" value="{{ ssc.id }}">{{ ssc.name }}</option>
                     {% endfor %}
                 </select>
 
@@ -53,7 +54,7 @@
                     <label for="date-picker-2" class="control-label">Start Date</label>
                     <div class="controls">
                         <div class="input-group">
-                            <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today }}"/>
+                            <input id="date-picker-2" type="text" class="date-picker form-control" name="s" value="{{ today|date:'d/m/Y' }}"/>
                             <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
                             </label>
                         </div>
@@ -66,7 +67,7 @@
                         <div class="input-group">
                             <label for="date-picker-3" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
                             </label>
-                            <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today }}"/>
+                            <input id="date-picker-3" type="text" class="date-picker form-control" name="e" value="{{ today|date:'d/m/Y' }}"/>
                         </div>
                     </div>
                 </div>
@@ -74,56 +75,115 @@
             </div>
             <div class="clearfix"></div>
             <hr/>
-            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000">
-                <div id="product_selected"></div>
-                <div id="retailer_selected"></div>
-                <div id="category_selected"></div>
-                <div id="subcategory_selected"></div>
-                <div id="subsubcategory_selected"></div>
+
+
+            <input type="button" id="add-item" value="Add product"/>
+            <div class="alert-success"></div>
+            <hr>
+            <div style="float: left; width: 50%; height: 200px;">
+                <h4>First product</h4>
+                <div id="product_selected_first"></div>
+                <div id="retailer_selected_first"></div>
+                <div id="category_selected_first"></div>
+                <div id="subcategory_selected_first"></div>
+                <div id="subsubcategory_selected_first"></div>
             </div>
-            <div style="float: left; width: 50%; height: 100px; border: 1px solid #000000"></div>
+            <div style="float: left; width: 50%; height: 200px;">
+                <h4>Second product</h4>
+                <div id="product_selected_second"></div>
+                <div id="retailer_selected_second"></div>
+                <div id="category_selected_second"></div>
+                <div id="subcategory_selected_second"></div>
+                <div id="subsubcategory_selected_second"></div>
+            </div>
+
 
             <h2>Reports</h2>
+
         </div>
+        <button type="submit" class="btn btn-default">Build chart</button>
     </form>
 
-        <script type="text/javascript">
+    <script type="text/javascript">
+        set_second_item = false;
 
-            $(".date-picker").datepicker();
-            $(".date-picker").on("change", function () {
-                var id = $(this).attr("id");
-                var val = $("label[for='" + id + "']").text();
-                $("#msg").text(val + " changed");
-            });
+        $('#add-item').on('click',function(e){
+            e.preventDefault();
 
-            $('#product').on("change", function () {
-                var id = $(this).attr("id");
-                var product = $(this).val();
-                $("#product_selected").text(product);
-            });
+            if($('#product_selected_first').text() != '' && $('#retailer_selected_first').text() != '' && $('#category_selected_first').text() != '' && $('#subcategory_selected_first').text() != '' && $('#subsubcategory_selected_first').text() != ''){
+                //global
+                set_second_item = true;
+                $('.alert-success').append('Product added. Choose another to compare');
+            } else {
+                alert('Please change select input!');
+                set_second_item = false;
+            }
 
-            $('#retailer').on("change", function () {
-                var id = $(this).attr("id");
-                var retailer = $(this).val();
-                $("#retailer_selected").text(retailer);
-            });
+        });
 
-            $('#category').on("change", function () {
-                var id = $(this).attr("id");
-                var category = $(this).val();
-                $("#category_selected").text(category);
-            });
+        $(".date-picker").datepicker();
+        $(".date-picker").on("change", function () {
+            var id = $(this).attr("id");
+            var val = $("label[for='" + id + "']").text();
+            $("#msg").text(val + " changed");
+        });
 
-            $('#subcategory').on("change", function () {
-                var id = $(this).attr("id");
-                var subcategory = $(this).val();
-                $("#subcategory_selected").text(subcategory);
-            });
+        $('#product').on("change", function () {
+            var id = $(this).attr("id");
+            var product = $('#product option:selected').text();
 
-            $('#subsubcategory').on("change", function () {
-                var id = $(this).attr("id");
-                var subsubcategory = $(this).val();
-                $("#subsubcategory_selected").text(subsubcategory);
-            });
-        </script>
+            if(!set_second_item){
+                $("#product_selected_first").text('Product: ' + product);
+            } else {
+                $("#product_selected_second").text('Product: ' + product);
+            }
+        });
+
+        $('#retailer').on("change", function () {
+            var id = $(this).attr("id");
+            var retailer = $('#retailer option:selected').text();
+
+            if(!set_second_item){
+                $("#retailer_selected_first").text('Retailer: ' + retailer);
+            } else {
+                $("#retailer_selected_second").text('Retailer: ' + retailer);
+            }
+        });
+
+        $('#category').on("change", function () {
+            var id = $(this).attr("id");
+            var category = $('#category option:selected').text();
+
+            if(!set_second_item){
+                $("#category_selected_first").text('Category: ' + category);
+            } else {
+                $("#category_selected_second").text('Category: ' + category);
+            }
+        });
+
+        $('#subcategory').on("change", function () {
+            var id = $(this).attr("id");
+            var subcategory = $('#subcategory option:selected').text();
+
+            if(!set_second_item){
+                $("#subcategory_selected_first").text('Sub Category: ' + subcategory);
+            } else {
+                $("#subcategory_selected_second").text('Sub Category: ' + subcategory);
+            }
+
+        });
+
+        $('#subsubcategory').on("change", function () {
+            var id = $(this).attr("id");
+            var subsubcategory = $('#subsubcategory option:selected').text();
+
+            if(!set_second_item){
+                $("#subsubcategory_selected_first").text('Sub sub category: ' + subsubcategory);
+            } else {
+                $("#subsubcategory_selected_second").text('Sub sub category: ' + subsubcategory);
+            }
+        });
+    </script>
+
+
 {% endblock %}

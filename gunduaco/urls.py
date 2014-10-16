@@ -29,10 +29,13 @@ urlpatterns = patterns('',
     url(r'^piebrand/$', views.piebrand),
     url(r'^piecategory/$', views.piecategory),
     url(r'^pie/$', views.pie_by_retailer),
+
     url(r'^prices_analyses/$', views.price_analyses),
+    url(r'^prices_analyses/result/$', views.price_analyses_result),
 
     url(r'^promoanalyses/brand/$', views.promoanalyses_brand),
     url(r'^promoanalyses/$', views.promoanalyses),
+    url(r'^promoanalyses/category/$', views.promoanalyses_category),
 
 
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
